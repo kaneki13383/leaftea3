@@ -38,8 +38,8 @@ export default {
         outputUsers(){
             axios.get('/api/users')
             .then(res =>(
-                this.info = res.data,
-                console.log(res.data)
+                this.info = res.data
+                // console.log(res.data)
             ))
         }
     }

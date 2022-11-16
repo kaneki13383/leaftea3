@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddProductController;
 use App\Http\Controllers\DeleteUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/products', [ProductController::class, 'all']);
 Route::get('/users', [UserOutputController::class, 'all']);
 Route::delete('/delete/{id}', [DeleteUser::class, 'delete']);
+Route::post('/add_product', [AddProductController:: class, 'addproduct']);

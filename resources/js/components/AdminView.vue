@@ -11,8 +11,8 @@
             <li>
                 <router-link to=""><img src="img/Vector2.svg" alt="">Заказы</router-link>
             </li>
-            <li>
-                <router-link to=""><img src="img/- (1) 1.svg" alt="">Товары</router-link>
+            <li v-on:click="show = 'products'">
+                <a><img src="img/- (1) 1.svg" alt="">Товары</a>
             </li>
             <li>
                 <router-link to=""><img src="img/Vector3.svg" alt=""><a @click.prevent="logout">Выход</a></router-link>
@@ -21,6 +21,7 @@
         <div class="info">
             <users v-if="show == 'users'"></users>
             <reviews v-else-if="show == 'reviews'"></reviews>
+            <products v-else-if="show == 'products'"></products>
         </div>
     </div>
 </template>
@@ -28,8 +29,9 @@
 <script>
 import users from './UserComponentAdmin.vue';
 import reviews from './Reviews.vue';
+import products from './Products.vue';
 export default {
-    components: { users, reviews },
+    components: { users, reviews, products },
     data () {     
         return {
             show: 'users',
