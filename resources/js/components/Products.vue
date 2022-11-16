@@ -2,13 +2,28 @@
     <div>
         <h3><span>—</span> Товары <span>—</span></h3>
         <div class="d-f">
-            <h4><span>—</span> Добавить новый товар <span>—</span></h4>
-            <!-- <label for="img">Выберите фото товара</label> -->
-            <input type="file" name="file" id="file" ref="file" v-on:change="handleFileUpload()">
-            <input v-model="name_product" type="text" name="name_product" placeholder="Введите название товара">
-            <input v-model="price" type="text" name="price" placeholder="Введите стоимость товара">
-            <input v-model="discription" type="text" name="discription" placeholder="Введите описание товара">
-            <button v-on:click="submitFile()">Добавить</button>
+            <div class="form-add-product">
+                <h4><span>—</span> Добавить новый товар <span>—</span></h4>
+                <!-- <label for="img">Выберите фото товара</label> -->
+                <input type="file" name="file" id="file" ref="file" v-on:change="handleFileUpload()">
+                <input v-model="name_product" type="text" name="name_product" placeholder="Введите название товара">
+                <input v-model="price" type="text" name="price" placeholder="Введите стоимость товара">
+                <input v-model="discription" type="text" name="discription" placeholder="Введите описание товара">
+                <button v-on:click="submitFile()">Добавить</button>
+            </div>
+            <div class="all-products">
+                <div class="tea" v-for="inf in info" v-bind:key="inf">
+                    <div class="info_tea">
+                        <img :src="inf.img" alt="">
+                        <h5>{{ inf.name_product }}</h5>
+                        <p>{{inf.price}} ₽/50гр.</p>
+                        <div class="edit_del">
+                            <div class="edit"></div>
+                            <div v-on:click="id = inf.id" @click.prevent="deleteProduct" class="delete"></div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
         </div>
     </div>
 </template>
@@ -21,8 +36,13 @@ export default {
             name_product: '',
             price: '',
             discription: '',
+            info: []
         }
     },
+
+    mounted(){
+        this.allProducts()
+    },  
 
     methods:{
         submitFile(){
@@ -39,6 +59,11 @@ export default {
                     }
                 },
             ).then(r => {
+                this.name_product = ''
+                this.price = ''
+                this.discription = ''
+                this.file = '',
+                this.allProducts()
             })
                 .catch(function(){
                     console.log('FAILURE!!');
@@ -46,6 +71,19 @@ export default {
         },
         handleFileUpload(){
             this.file = this.$refs.file.files[0];
+        },
+        allProducts(){
+            axios.get('/api/products')
+                .then(res =>(
+                    this.info = res.data
+                    // console.log(res.data)
+                ))
+        },
+        deleteProduct(){
+            axios.delete(`/api/delete_product/${ this.id }`)
+            .then(res=>{
+                this.allProducts()
+            })
         },
     }
 }
@@ -111,9 +149,74 @@ export default {
         color: #191D21;
         transition-duration: 0.5s;
     }
-    .d-f{        
+    .form-add-product{        
         display: flex;        
         flex-direction: column;
+        gap: 2vw;
+    }
+    .tea{
+        background-color: #191D21;
+        box-shadow: black 14px 14px 8px 4px;
+        width: 20rem;
+        height: 28rem;
+        color: white;
+        margin-bottom: 3vw;
+    }
+    .info_tea{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .info_tea h5{
+        font-size: 1.2vw;
+        font-family: 'Comfortaa', sans-serif;
+    }
+    .info_tea img{
+        margin-top: -5vw;
+        width: 15rem;
+        height: 15rem;  
+        border-radius: 10vw;      
+    }
+    .d-f{
+        display: flex;
+        flex-direction: column;
+        gap: 10vw;
+    }
+    .edit{
+        width: 50px;
+        height: 50px;
+        background-image: url('img/edit_white.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-top: 2vw;
+    }
+    .edit:hover{
+        background-image: url('img/edit_orange.png');
+        transition-duration: 0.5s;
+    }
+    .all-products{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4vw;
+    }
+    .delete{
+        width: 40px;
+        height: 40px;
+        background-image: url('img/x.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-top: 2vw;
+    }
+    .delete:hover{
+        background-image: url('img/remove.png');
+        transition-duration: 0.5s;
+    }
+    .edit_del{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         gap: 2vw;
     }
 </style>

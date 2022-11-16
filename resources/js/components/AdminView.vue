@@ -66,6 +66,7 @@ export default {
     }
     .navigation{
         display: flex;
+        
         color: white;
         flex-direction: column;
         gap: 3vw;

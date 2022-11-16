@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddProductController;
+use App\Http\Controllers\DeleteProductController;
 use App\Http\Controllers\DeleteUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,4 @@ Route::get('/products', [ProductController::class, 'all']);
 Route::get('/users', [UserOutputController::class, 'all']);
 Route::delete('/delete/{id}', [DeleteUser::class, 'delete']);
 Route::post('/add_product', [AddProductController:: class, 'addproduct']);
+Route::delete('/delete_product/{id}', [DeleteProductController::class, 'delete']);
