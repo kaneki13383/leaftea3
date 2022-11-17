@@ -121,6 +121,8 @@ export default {
         height: 50px;
         color: white;
         padding: 5px;
+        font-family: 'Comfortaa', sans-serif;
+        font-size: 1.2rem;
     }
     textarea{
         resize: none;
