@@ -10,7 +10,7 @@
                 <input v-model="name_product" type="text" name="name_product" placeholder="Введите название товара">
                 <input v-model="price" type="text" name="price" placeholder="Введите стоимость товара">
                 <textarea v-model="discription" type="text" name="discription" maxlength="255" placeholder="Введите описание товара"></textarea>
-                <div class="counter">{{counter}}</div>
+                <div class="counter">{{counter}}/255</div>
                 <button v-on:click="submitFile()">Добавить</button>
             </div>
             <div class="all-products">

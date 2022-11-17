@@ -59,7 +59,7 @@ export default {
   .tea{
       background-color: #191D21;
       box-shadow: black 14px 14px 8px 4px;
-      width: 20rem;
+      width: 22rem;
       height: 27rem;
       color: white;
   }
@@ -82,7 +82,7 @@ export default {
   .info_tea p{
       font-size: 1vw;
   }
-  .info_tea button{
+  .info_tea a{
       width: 180px;
       height: 50px;
       text-decoration: none;
@@ -92,7 +92,7 @@ export default {
       font-size: 1.2vw;
       font-family: 'Philosopher', sans-serif;
   }
-  .info_tea button:hover{
+  .info_tea a:hover{
       background-color: #9FC926;
       color: #191D21;
       transition-duration: 0.5s;
