@@ -7,7 +7,7 @@
             <img :src="inf.img" alt="">
             <h4>{{ inf.name_product }}</h4>
             <p>{{inf.price}} ₽/50гр.</p>
-            <button>Купить</button>
+            <router-link :to="{ path: '/product/'+inf.id }">View Product</router-link>
           </div>
         </div>         
       </div>
@@ -18,19 +18,19 @@
 </template>
 <script>
 export default {
-  data() {
-      return {
-        info: []
-      };
-  },
+    data() {
+        return {
+          info: []
+        };
+    },
 
-  mounted(){
-    axios.get('/api/products')
-    .then(res =>(
-        this.info = res.data,
-        console.log(res.data)
-    ))
-  },
+    mounted(){
+      axios.get('/api/products')
+      .then(res =>(
+          this.info = res.data,
+          console.log(res.data)
+      ))
+    },
 }
 </script>
 <style lang="css" scoped>

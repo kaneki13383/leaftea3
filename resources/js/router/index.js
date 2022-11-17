@@ -8,6 +8,7 @@ import LoginComponent from '../components/LoginComponent.vue';
 import GetComponent from '../components/GetComponent.vue';
 import DashboardComponent from '../components/DashboardComponent.vue';
 import AdminView from '../components/AdminView.vue';
+import Product from '../components/Product.vue'
 
 const router = new createRouter({
     base: "/",
@@ -21,7 +22,8 @@ const router = new createRouter({
         { path: "/login", component: LoginComponent},
         { path: "/get", component: GetComponent},
         { path: "/dashboard", component: DashboardComponent},
-        { path: "/admin", component: AdminView }
+        { path: "/admin", component: AdminView },
+        { path: "/product/:id", component: Product }
     ],
 });
 

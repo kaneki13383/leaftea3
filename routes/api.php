@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/products', [ProductController::class, 'all']);
+Route::get('/view/{id}', [ProductController::class, 'get']);
 Route::get('/users', [UserOutputController::class, 'all']);
 Route::delete('/delete/{id}', [DeleteUser::class, 'delete']);
 Route::post('/add_product', [AddProductController:: class, 'addproduct']);
