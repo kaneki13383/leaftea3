@@ -4,11 +4,13 @@
         <div class="d-f">
             <div class="form-add-product">
                 <h4><span>—</span> Добавить новый товар <span>—</span></h4>
-                <!-- <label for="img">Выберите фото товара</label> -->
+                <label for="file">Выберите фото товара</label>
+                <p class="file_name" v-show="file.name">{{file.name}}</p>
                 <input type="file" name="file" id="file" ref="file" v-on:change="handleFileUpload()">
                 <input v-model="name_product" type="text" name="name_product" placeholder="Введите название товара">
                 <input v-model="price" type="text" name="price" placeholder="Введите стоимость товара">
-                <input v-model="discription" type="text" name="discription" placeholder="Введите описание товара">
+                <textarea v-model="discription" type="text" name="discription" maxlength="255" placeholder="Введите описание товара"></textarea>
+                <div class="counter">{{counter}}</div>
                 <button v-on:click="submitFile()">Добавить</button>
             </div>
             <div class="all-products">
@@ -30,6 +32,12 @@
 
 <script>
 export default {
+    computed:{
+        counter(){
+            return this.discription.length;
+        }
+    },
+
     data () {       
         return {
             file: '',
@@ -104,7 +112,7 @@ export default {
     span{
         color: #9FC926;
     }
-    input{
+    input, textarea{
         background-color: transparent;
         border: none;
         border-bottom: #9FC926 2px solid;
@@ -114,7 +122,18 @@ export default {
         color: white;
         padding: 5px;
     }
-    input::placeholder{
+    textarea{
+        resize: none;
+        border: #9FC926 2px solid;
+        height: 120px;
+    }
+    .file_name{
+        color: white;
+        font-size: 1.2vw;
+        font-family: 'Comfortaa', sans-serif;
+        margin: -0.5vw 0;
+    }
+    input::placeholder, textarea::placeholder{
         color: white;
         font-size: 1vw;
         font-family: 'Comfortaa', cursive;
@@ -128,12 +147,20 @@ export default {
         color: white;
         font-size: 1.2vw;
         border: 2px #9fc926 solid;
-        width: 20vw;
+        width: 25vw;
         height: 50px;
-        margin-top: 3vw;
+        /* margin-bottom: -4.5vw; */
         padding-top: 0.5vh;
         text-align: center;
-        
+        z-index: 1;
+        transition: 0.5s;
+    }
+    label:hover{
+        color: #191D21;
+        background: #9FC926;
+    }
+    input[type=file]{
+        display: none;
     }
     button{
         background: transparent;
@@ -153,6 +180,7 @@ export default {
         display: flex;        
         flex-direction: column;
         gap: 2vw;
+        width: 25vw;
     }
     .tea{
         background-color: #191D21;
@@ -181,6 +209,14 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 10vw;
+    }
+    .counter{
+        font-size: 1.2rem;
+        color: white;
+        font-family: 'Comfortaa', sans-serif;
+        text-align: right;
+        margin-top: -3.5vw;
+        margin-right: 0.5vw;
     }
     .edit{
         width: 50px;

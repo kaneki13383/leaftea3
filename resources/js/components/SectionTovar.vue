@@ -60,7 +60,7 @@ export default {
       background-color: #191D21;
       box-shadow: black 14px 14px 8px 4px;
       width: 20rem;
-      height: 30rem;
+      height: 27rem;
       color: white;
   }
   .info_tea{
@@ -70,6 +70,11 @@ export default {
       gap: 0vw;
       font-family: 'Comfortaa', cursive;
       margin-top: -5vw;
+  }
+  .info_tea img{
+        width: 15rem;
+        height: 15rem;  
+        border-radius: 10vw;
   }
   .info_tea h4{
       font-size: 1.25vw;

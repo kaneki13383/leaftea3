@@ -65,12 +65,14 @@ export default {
         padding: 0;
     }
     .navigation{
-        display: flex;
-        
+        display: flex;        
         color: white;
         flex-direction: column;
+        position: fixed;
         gap: 3vw;
-        width: 500px;
+        width: 250px;
+        top: 5vw;
+        left: 5vw;
         /* border-right: 3px solid #9fc926; */
     }
     .navigation li a{
@@ -90,6 +92,7 @@ export default {
     .info{
         width: 1200px;
         height: auto;
+        margin-left: 25vw;
     }
     .d-f{
         display: flex;
