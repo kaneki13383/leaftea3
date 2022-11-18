@@ -31,7 +31,7 @@
                     <img src="img/angliiskiisadovnik1 1.png" alt="">
                     <h4>Секрет Императрицы</h4>
                     <p>280 ₽/50гр.</p>
-                    <router-link :to="{ path: '/product/5' }">Подробнее</router-link>
+                    <router-link :to="{ path: '/product/4' }">Подробнее</router-link>
                 </div>
             </div>           
         </div>
