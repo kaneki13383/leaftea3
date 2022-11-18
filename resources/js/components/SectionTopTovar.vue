@@ -7,7 +7,7 @@
                     <img src="img/angliiskiisadovnik1 1.png" alt="">
                     <h4>Английский садовник</h4>
                     <p>260 ₽/50гр.</p>
-                    <button>Купить</button>
+                    <router-link :to="{ path: '/product/1' }">Подробнее</router-link>
                 </div>
             </div>
             <div class="tea">
@@ -15,7 +15,7 @@
                     <img src="img/angliiskiisadovnik1 1.png" alt="">
                     <h4>Вишневый Цитрус</h4>
                     <p>208 ₽/50гр.</p>
-                    <button>Купить</button>
+                    <router-link :to="{ path: '/product/2' }">Подробнее</router-link>
                     </div>
                 </div>
             <div class="tea">
@@ -23,7 +23,7 @@
                     <img src="img/angliiskiisadovnik1 1.png" alt="">
                     <h4>Секрет Императора</h4>
                     <p>280 ₽/50гр.</p>
-                    <button>Купить</button>
+                    <router-link :to="{ path: '/product/4' }">Подробнее</router-link>
                     </div>
                 </div>
             <div class="tea">
@@ -31,7 +31,7 @@
                     <img src="img/angliiskiisadovnik1 1.png" alt="">
                     <h4>Секрет Императрицы</h4>
                     <p>280 ₽/50гр.</p>
-                    <button>Купить</button>
+                    <router-link :to="{ path: '/product/5' }">Подробнее</router-link>
                 </div>
             </div>           
         </div>
@@ -93,7 +93,11 @@ export default {
   .info_tea p{
       font-size: 1vw;
   }
-  .info_tea button{
+  .info_tea a{
+    text-align: center;
+    padding-top: 0.25vw;
+  }
+  .info_tea a{
       width: 180px;
       height: 50px;
       text-decoration: none;
@@ -103,7 +107,7 @@ export default {
       font-size: 1.2vw;
       font-family: 'Philosopher', sans-serif;
   }
-  .info_tea button:hover{
+  .info_tea a:hover{
       background-color: #9FC926;
       color: #191D21;
       transition-duration: 0.5s;

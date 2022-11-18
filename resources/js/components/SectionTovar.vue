@@ -7,12 +7,9 @@
             <img :src="inf.img" alt="">
             <h4>{{ inf.name_product }}</h4>
             <p>{{inf.price}} ₽/50гр.</p>
-            <router-link :to="{ path: '/product/'+inf.id }">View Product</router-link>
+            <router-link :to="{ path: '/product/'+inf.id }">Подробнее</router-link>
           </div>
         </div>         
-      </div>
-      <div class="btn">
-          <button class="butt_more">Подробнее</button>
       </div>            
   </section>
 </template>
@@ -70,6 +67,10 @@ export default {
       gap: 0vw;
       font-family: 'Comfortaa', cursive;
       margin-top: -5vw;
+  }
+  .info_tea a{
+    text-align: center;
+    padding-top: 0.25vw;
   }
   .info_tea img{
         width: 15rem;
