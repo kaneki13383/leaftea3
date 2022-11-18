@@ -16,13 +16,22 @@
             <p>Ваша почта: {{email}}</p>
         </div>        
     </div>
+    <div>
+        <h3><span>—</span> Оставьте свой отзыв <span>—</span></h3>
+        <form action="">
+            <textarea name="" id="" placeholder="Пошли нахуй" cols="80" rows="15"></textarea>
+            <button class="button_sub" type="submit">Отправить</button>
+        </form>
+    </div>
+    <div><FooterView></FooterView></div>
 </template>
 
 <script>
 import HeaderComponent from './HeaderComponent.vue';
 import Kostyl from './Kostyl.vue';
+import FooterView from './FooterView.vue';
 export default {
-  components: { Kostyl, HeaderComponent },
+  components: { Kostyl, HeaderComponent,FooterView },
     data(){
         return{
             name: '',
@@ -186,6 +195,50 @@ export default {
         justify-content: center;
         padding-left: 3vw;
     }
+    h3{
+      color: white;
+      text-align: center;
+      font-size: 2vw;
+      margin: 8vw 0;
+      font-family: 'Comfortaa', cursive;
+    }
+    h3 span{
+      color: #9FC926;
+    }
+    form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    form textarea{
+        color: white;
+        resize: none;
+        background: transparent;
+        border: #9FC926 2px solid;
+    }
+    form button{
+    width: 10vw;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    font-size: 1.2vw;
+    font-family: 'Philosopher', sans-serif;
+    border: #9FC926 2px solid;
+    margin-top: 5vh;
+    }
+    form button:hover{
+    background-color: #9FC926;
+    color: #191D21;
+    transition-duration: 0.5s;
+    }
+    
+    input::placeholder, textarea::placeholder{
+        color: white;
+        font-size: 1vw;
+        padding: 1vw;
+        font-family: 'Comfortaa', cursive;
+    }
+
     @media screen and (max-width: 1024px) {
         .d-f{
             flex-direction: column;
