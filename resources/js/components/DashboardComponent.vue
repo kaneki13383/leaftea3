@@ -3,7 +3,7 @@
     <Kostyl></Kostyl>
     <div class="d-f">
         <div class="logout">
-            <img src="img/no-avatar.png" v-if="avatar == 'null' || avatar == 'undefined'" alt="">
+            <img src="img/no-avatar.png" v-if="avatar == 'NULL' || avatar == 'undefined'" alt="">
             <img :src="avatar" alt="" v-else>
             <label for="file">Выберите аватар</label>
             <p v-show="file.name">{{file.name}}</p>

@@ -9,8 +9,9 @@
                 <input type="file" name="file" id="file" ref="file" v-on:change="handleFileUpload()">
                 <input v-model="name_product" type="text" name="name_product" placeholder="Введите название товара">
                 <input v-model="price" type="text" name="price" placeholder="Введите стоимость товара">
-                <textarea v-model="discription" type="text" name="discription" maxlength="255" placeholder="Введите описание товара"></textarea>
-                <div class="counter">{{counter}}/255</div>
+                <textarea v-model="discription2" name="discription2" id="" maxlength="250" placeholder="Введите краткое описание товара"></textarea>
+                <textarea v-model="discription" type="text" name="discription" maxlength="1600" placeholder="Введите полное описание товара"></textarea>
+                <div class="counter">{{counter}}/1600</div>
                 <button v-on:click="submitFile()">Добавить</button>
             </div>
             <div class="all-products">
@@ -44,6 +45,7 @@ export default {
             name_product: '',
             price: '',
             discription: '',
+            discription2: '',
             info: []
         }
     },
@@ -59,6 +61,7 @@ export default {
             formData.append('name_product', this.name_product);
             formData.append('price', this.price);
             formData.append('discription', this.discription);
+            formData.append('discription2', this.discription2);
             axios.post('/api/add_product',
                 formData,
                 {
@@ -70,6 +73,7 @@ export default {
                 this.name_product = ''
                 this.price = ''
                 this.discription = ''
+                this.discription2 = ''
                 this.file = '',
                 this.allProducts()
             })
@@ -218,7 +222,7 @@ export default {
         font-family: 'Comfortaa', sans-serif;
         text-align: right;
         margin-top: -3.5vw;
-        margin-right: 0.5vw;
+        margin-right: 1.3vw;
     }
     .edit{
         width: 50px;

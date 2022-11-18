@@ -14,6 +14,7 @@ class AddProductController extends Controller
         $name_product = $request->input('name_product');
         $price = $request->input('price');
         $discription = $request->input('discription');
+        $discription2 = $request->input('discription2');
      
         $request->file->move(public_path('products'), $fileName);
 
@@ -21,6 +22,7 @@ class AddProductController extends Controller
             'name_product' => $name_product,
             'price' => $price,
             'discription' => $discription,
+            'discription2' => $discription2,
             'img' => '../products/'.$fileName
          ]);
 
