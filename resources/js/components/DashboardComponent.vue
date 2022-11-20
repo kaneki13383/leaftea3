@@ -18,10 +18,11 @@
     </div>
     <div>
         <h3><span>—</span> Оставьте свой отзыв <span>—</span></h3>
-        <form action="">
-            <textarea name="" id="" placeholder="Пошли нахуй" cols="80" rows="15"></textarea>
-            <button class="button_sub" type="submit">Отправить</button>
-        </form>
+        <div class="review-df"> 
+            <div class="counter">{{counter}}/255</div>
+            <textarea v-model="review" class="review" name="review" id="" maxlength="255" placeholder="Оставите отзыв о нашей компании"></textarea>
+            <button v-on:click="Review1()" class="button_sub">Отправить</button>
+        </div>   
     </div>
     <div><FooterView></FooterView></div>
 </template>
@@ -31,14 +32,15 @@ import HeaderComponent from './HeaderComponent.vue';
 import Kostyl from './Kostyl.vue';
 import FooterView from './FooterView.vue';
 export default {
-  components: { Kostyl, HeaderComponent,FooterView },
+  components: { Kostyl, HeaderComponent, FooterView },
     data(){
         return{
             name: '',
             email: '',
             file: '',
             id: '',
-            avatar: ''
+            avatar: '',
+            review: ''
         }
     },
 
@@ -53,6 +55,11 @@ export default {
         document.title = this.name;
     },
 
+    computed:{
+        counter(){
+            return this.review.length;
+        }
+    },
 
     methods:{
         logout(){
@@ -72,7 +79,7 @@ export default {
             formData.append('file', this.file);
             this.getId()
             formData.append('id', this.id);
-            axios.post( '/load-avatar',
+            axios.post('/load-avatar',
                 formData,
                 {
                     headers: {
@@ -104,10 +111,24 @@ export default {
         getAvatar(){
             this.avatar = localStorage.getItem('avatar')
         },
-        // loadAvatar(){
-        //     axios.post('/api/load-avatar')
-        //
-        // }
+        Review1(){
+            let formData = new FormData();
+            formData.append('review', this.review);
+            formData.append('name_user', this.name);
+            formData.append('avatar', this.avatar)
+            axios.post('/api/review', 
+            formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                },
+                )
+            
+            .then(res =>{
+                console.log()
+            })
+        }
     }
 }
 </script>
@@ -122,6 +143,14 @@ export default {
         align-items: baseline;
         align-content: space-around;
         align-items: center;
+    }
+    .counter{
+        color: white;
+        font-size: 1.2vw;
+        font-family: 'Comfortaa', sans-serif;
+        position: absolute;
+        margin: 8vw 0;
+        margin-left: 17vw;
     }
     .logout p{
         color: white;
@@ -205,18 +234,22 @@ export default {
     h3 span{
       color: #9FC926;
     }
-    form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-    form textarea{
+    .review-df{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .review{
         color: white;
         resize: none;
         background: transparent;
+        width: 500px;
+        height: 200px;
         border: #9FC926 2px solid;
+        font-size: 1.2vw;
+        font-family: 'Comfortaa', sans-serif;
     }
-    form button{
+    button{
     width: 10vw;
     height: 50px;
     background-color: transparent;
