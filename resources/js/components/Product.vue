@@ -181,7 +181,7 @@ export default {
   border-bottom: 2px solid #842029;
 }
 .close{
-  background-image: url('/img/xx.png');
+  background-image: url('/img/xxx.png');
   background-size: 100%;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -328,5 +328,88 @@ h3 span{
   width: 75vw;
   margin: 0;
   font-family: 'Comfortaa', cursive;
+}
+@media screen and (max-width: 1440px) {
+  .info_tea img{
+    width: 400px;
+    height: 400px;
+  }
+  .foto_block img{
+    width: 180px;
+    height: 180px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .info_tea img{
+    width: 350px;
+    height: 350px;
+  }
+  .foto_block img{
+    width: 150px;
+    height: 150px;
+  }
+  .btn_price .add{
+    width: 125px;
+    height: 35px;
+  }
+  .btn_price button{
+    height: 35px;
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .btn_price .add{
+    width: 200px;
+    height: 45px;
+    font-size: 2vw;
+  }
+  .btn_price button{
+    width: 3vw;
+    height: 45px;
+    font-size: 2vw;
+  }
+  .info_tovar p{
+    font-size: 1.5vw;
+    width:90vw;
+  }
+  h3{
+    margin: 5vw 0 3vw;
+  }
+  .info_text p{
+    font-size: 1.3vw;
+    width:45vw;
+  }
+  .compound{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .compound li{
+    font-size: 1.3vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .info_tea img{
+    width: 300px;
+    height: 300px;
+  }
+  .foto_block img{
+    width: 125px;
+    height: 125px;
+  }
+  h4{
+    font-size: 1.7vw;
+  }
+  .info_text p{
+    font-size: 1.3vw;
+    width:40vw;
+  }
+  h5{
+    font-size: 1.7vw;
+  }
+  .compound li{
+    color: white;
+    font-size: 1.2vw;
+  }
 }
 </style>

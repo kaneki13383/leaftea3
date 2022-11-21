@@ -13,8 +13,10 @@
             <router-link class="info_link_text" to="/register">Нет аккаунта?</router-link>
         </div>
         <div>
-            <a  class="info_link_text">
+            <a v-if="!error" class="info_link_text">
                 Политика конфиденциальности
+            </a><a v-else class="info_link_text">
+                {{error}}
             </a>
         </div>
         </div> 
@@ -29,6 +31,7 @@ export default {
         return{
             email: null,
             password: null,
+            error: ''
         }
     },
     mounted(){    
@@ -56,13 +59,11 @@ export default {
                     }
                 })
                 .catch( err => {
-                    console.log(err.response)
+                    console.log(err)
+                    this.error = 'Неправильный e-mail или пароль!'
                 })
-            })
-            
+            }) 
         },
-
-        
     }
 }
 </script>
@@ -142,5 +143,50 @@ export default {
         color: white;
         font-size: 1vw;
         font-family: 'Comfortaa', cursive;
+    }
+    @media screen and (max-width: 1500px) {
+        .log{
+            background-size: 110%;
+        }
+    }
+    @media screen and (max-width: 1400px) {
+        .log{
+            background-size: 115%;
+        }       
+    }
+    @media screen and (max-width: 1350px) {
+        .log{
+            background-size: 120%;
+        }       
+    }
+    @media screen and (max-width: 1300px) {
+        .log{
+            background-size: 122%;
+        }       
+    }
+    @media screen and (max-width: 1250px) {
+        .log{
+            background-size: 127%;
+        }       
+    }
+    @media screen and (max-width: 1200px) {
+        .log{
+            background-size: 132%;
+        }       
+    }
+    @media screen and (max-width: 1150px) {
+        .log{
+            background-size: 138%;
+        }
+        .background{
+        background-color: #191d21dc;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 1vw;
+        width: 50%;
+        height: 60%;
+        padding: 5vw 0;
+        }       
     }
 </style>

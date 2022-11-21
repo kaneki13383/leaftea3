@@ -49,6 +49,7 @@ export default {
         email: null,
         password: null,
         password_confirmation: null,
+        errors: []
     }
   },
 
@@ -59,7 +60,7 @@ export default {
   methods: {
     register(){
         axios.get('/sanctum/csrf-cookie').then(Response => {
-                axios.post('/register', {name: this.name, email: this.email, password: this.password, password_confirmation: this.password_confirmation})
+                axios.post('/api/register', {name: this.name, email: this.email, password: this.password, password_confirmation: this.password_confirmation})
             .then(r =>{
                 console.log(r)
                 this.name = '';
@@ -73,6 +74,10 @@ export default {
                     localStorage.setItem('avatar',r.data['avatar']);
                 this.$router.push('/dashboard')
             })
+            .catch(e => {
+                console.log('dsfdssdfdsfdfsdfs');
+                console.log(e.response);
+            });
         })
     }
     },
