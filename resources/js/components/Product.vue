@@ -48,7 +48,7 @@
     v-bind:css="false">
           <div class="modal" v-if="showModal">
             <div class="close" @click="showModal = false"></div>
-            <span><router-link to="/login"> Войдите </router-link> в аккаунт чтобы добавить товар в корзину!</span>
+            <span><router-link to="/login">Войдите</router-link> в аккаунт чтобы добавить товар в корзину!</span>
           </div>
     </transition>
     <div class="info_tovar">
@@ -176,6 +176,9 @@ export default {
   color: #842029;
   font-size: 1.3rem;
   font-family: 'Comfortaa', sans-serif;
+}
+.modal a{
+  border-bottom: 2px solid #842029;
 }
 .close{
   background-image: url('/img/xx.png');
