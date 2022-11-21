@@ -67,6 +67,7 @@
     translate: -1vw -1vw;
     width: 150px;
     height: 150px;
+    border-radius: 10vw;
 }
 .comm{
     display: flex;
@@ -82,7 +83,7 @@
     font-family: 'Philosopher', sans-serif;
     font-size: 0.9vw;
     margin: 0;
-    width: 17.0vw;
+    width: 20vw;
 }
 /*Отзывы*/
 @media screen and (max-width:1600px) {

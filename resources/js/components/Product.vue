@@ -1,12 +1,3 @@
-<!-- <template>
-    <div>
-        <p>{{this.info['name_product']}}</p>
-        <p>{{this.info['price']}}</p>
-        <p>{{this.info['discription']}}</p>
-        <img :src="this.info['img']" alt="">
-    </div>
-</template> -->
-
 <template>
     <div>
       <HeaderComponent></HeaderComponent>
@@ -44,10 +35,22 @@
         <div class="btn_price">
           <button @click.prevent="minusProduct">-</button>
           <button @click.prevent="plusProduct">+</button>
-          <button>Добавить</button>
+          <button v-if="!token" class="add" id="show-modal" @click="showFunc">Добавить</button>
+          <button class="add" v-else>Добавить</button>
+          
         </div>
       </div>
     </div>
+    <transition
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter"
+    v-on:leave="leave"
+    v-bind:css="false">
+          <div class="modal" v-if="showModal">
+            <div class="close" @click="showModal = false"></div>
+            <span><router-link to="/login"> Войдите </router-link> в аккаунт чтобы добавить товар в корзину!</span>
+          </div>
+    </transition>
     <div class="info_tovar">
       <h3><span>—</span> Описание <span>—</span></h3>
       <p>
@@ -69,7 +72,9 @@ export default {
             id: null,
             price: '',
             summ: 0,
-            weight: 50
+            weight: 50,
+            showModal: false,
+            token: ''
         }
     },
     components: { HeaderComponent, Kostyl, FooterView},
@@ -77,6 +82,7 @@ export default {
     mounted(){                
         this.parseURL()
         this.getProduct()
+        this.getToken()
     },
     
     methods:{
@@ -94,6 +100,12 @@ export default {
             let url = window.location.pathname
             this.id = url.split('/')[2]
             // console.log(this.id)
+        },
+        showFalse(){
+          this.showModal = false
+        },
+        showFunc(){
+          this.showModal = setTimeout(this.showFalse, 5500)
         },
 
         plusProduct(){
@@ -115,7 +127,30 @@ export default {
                 this.summ = Number(this.summ - this.price)
                 this.weight = this.weight - 50
             }
-        }
+        },
+        getToken(){
+          this.token = localStorage.getItem('x_xsrf_token')
+        },
+
+        beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.transformOrigin = 'left'
+    },
+    enter: function (el, done) {
+      Velocity(el, { opacity: 1, fontSize: '1.2em' }, { duration: 300 })
+      Velocity(el, { fontSize: '1em' }, { complete: done })
+    },
+    leave: function (el, done) {
+      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+      Velocity(el, { rotateZ: '100deg' }, { loop: 3 })
+      Velocity(el, {
+        rotateZ: '45deg',
+        translateY: '30px',
+        translateX: '30px',
+        opacity: 0
+      }, { complete: done })
+    }
+
     }
 
 }
@@ -127,6 +162,31 @@ export default {
   margin: 2.5vw 100px 0;
   justify-content: space-between;
   column-gap: 9vw;
+}
+.modal{
+  width: 400px;
+  height: 80px;
+  background: #f8d7da;
+  border: 2px solid #f5c2c7;
+  position: fixed;
+  float: right;
+  z-index: 5;
+  margin-top: -15vw;
+  padding: 0.7vw;
+  color: #842029;
+  font-size: 1.3rem;
+  font-family: 'Comfortaa', sans-serif;
+}
+.close{
+  background-image: url('/img/xx.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  float: right;
+  width: 25px;
+  height: 25px;
+  margin: 0.5vw;
+  z-index: 3;
 }
 .info_tea img{
   height: 600px;
@@ -209,11 +269,14 @@ h5{
   font-family: 'Comfortaa', sans-serif;
   margin: 0;
 }
+.price span a{
+  border-bottom: 2px solid #9FC926;
+}
 .btn_price{
   display: flex;
 }
-.btn_price button:last-child{
-    width: 10vw;
+.btn_price .add{
+    width: 200px;
     height: 45px;
     background-color: transparent;
     color:  white ;

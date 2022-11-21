@@ -28,8 +28,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     Route::post('/load-avatar', '\App\Http\Controllers\LoadAvatarController');
 // });
 
-
-
 Route::get('/products', [ProductController::class, 'all']);
 Route::get('/view/{id}', [ProductController::class, 'get']);
 Route::get('/users', [UserOutputController::class, 'all']);
