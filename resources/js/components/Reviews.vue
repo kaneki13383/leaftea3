@@ -7,6 +7,7 @@
                 <div class="comm">
                     <h5>{{rew.name_user}}</h5>
                     <p>{{rew.review}}</p>
+                    <div v-on:click="id = rew.id" @click.prevent="deleteReview" class="delete"></div>
                 </div>
             </div>
         </div>
@@ -18,7 +19,8 @@
 export default {
     data () {
         return {
-            reviews: []
+            reviews: [],
+            id: ''
         }
     },
 
@@ -33,7 +35,13 @@ export default {
                 this.reviews = res.data
                 // console.log(res)
             })
-        }
+        },
+        deleteReview(){
+            axios.delete(`/api/deletereview/${ this.id }`)
+            .then(res=>{
+                this.getAll()
+            })
+        },
     }
 }
 </script>
@@ -47,6 +55,18 @@ export default {
     }
     h3 span{
         color: #9FC926;
+    }
+    .delete{
+        width: 40px;
+        height: 40px;
+        background-image: url('img/x.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+    .delete:hover{
+        background-image: url('img/remove.png');
+        transition-duration: 0.5s;
     }
     .orders{
     display: flex;

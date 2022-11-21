@@ -38,3 +38,4 @@ Route::post('/add_product', [AddProductController:: class, 'addproduct']);
 Route::delete('/delete_product/{id}', [DeleteProductController::class, 'delete']);
 Route::post('/review', [ReviewController::class, 'addreview']);
 Route::get('/getreview', [ReviewController::class, 'getreview']);
+Route::delete('/deletereview/{id}', [ReviewController::class, 'deletereview']);

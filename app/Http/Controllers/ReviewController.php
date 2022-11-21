@@ -25,4 +25,8 @@ class ReviewController extends Controller
     public function getreview(){
         return Review::all();
     }
+
+    public function deletereview($id){
+        DB::table('reviews')->where('id', '=', $id)->delete();
+    }
 }

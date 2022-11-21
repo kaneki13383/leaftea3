@@ -2,27 +2,13 @@
     <section class="otziv">
         <h3><span>—</span> Øтзывы <span>—</span></h3>
         <div class="orders">
-            <div class="order">                
-                <img src="img/ava0.png" alt="">
+            <div v-for="review in reviews" v-bind:key="review" class="order">                
+                <img :src="review.img_user" alt="">
                 <div class="comm">
-                    <h5>Иван</h5>
-                    <p>Я простой русский рабочий иван город москва люблю пить чай по старой русской традиции заварить самовар любить ватрушки и бублик leaftea мой любимый магазин </p>
+                    <h5>{{review.name_user}}</h5>
+                    <p>{{review.review}}</p>
                 </div>
-            </div>
-            <div class="order">
-                <img src="img/ava1.png" alt="">
-                <div class="comm">
-                    <h5>Хасбула</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                </div>
-            </div>
-            <div class="order">
-                <img src="img/ava2.png" alt="">
-                <div class="comm">
-                    <h5>Петр</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                </div>
-            </div>
+            </div>          
         </div>
     </section>
   </template>
@@ -30,8 +16,23 @@
   <script>
   export default {
     data() {
-      return {};
+      return {
+        reviews: []
+      };
     },
+    mounted(){
+        this.getAll()
+    },
+    methods:{
+        getAll(){
+            axios.get('/api/getreview')
+            .then(res=>{
+                this.reviews = res.data
+                // console.log(this.reviews)
+
+            })
+        }
+    }
   };
   </script>
   
