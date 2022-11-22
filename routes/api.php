@@ -4,6 +4,7 @@ use App\Http\Controllers\AddProductController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DeleteProductController;
 use App\Http\Controllers\DeleteUser;
+use App\Http\Controllers\LoadAvatarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -40,3 +41,4 @@ Route::delete('/delete_product/{id}', [DeleteProductController::class, 'delete']
 Route::post('/review', [ReviewController::class, 'addreview']);
 Route::get('/getreview', [ReviewController::class, 'getreview']);
 Route::delete('/deletereview/{id}', [ReviewController::class, 'deletereview']);
+Route::post('/delavatar', [LoadAvatarController::class, 'delavatar']);

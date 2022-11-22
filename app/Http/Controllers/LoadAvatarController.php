@@ -38,4 +38,11 @@ class LoadAvatarController extends Controller
             ->with('success','You have successfully upload file.')
             ->with('file', $fileName);
     }
+
+    public function delavatar(Request $request)
+    {
+        DB::table('users')
+            ->where('id', '=', $request->input('id'))
+            ->update(['avatar' => 'NULL']);
+    }
 }

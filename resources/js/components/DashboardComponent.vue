@@ -4,7 +4,8 @@
     <div class="d-f">
         <div class="logout">
             <img src="img/no-avatar.png" v-if="avatar == 'NULL' || avatar == 'undefined'" alt="">
-            <img :src="avatar" alt="" v-else>
+            <img :src="avatar" alt="" v-else> 
+            <div v-if="avatar != 'NULL'" title="Удалить аватар" v-on:click="delAvatar()" class="del_avatar"></div>
             <label for="file">Выберите аватар</label>
             <p v-show="file.name">{{file.name}}</p>
             <input type="file" id="file" ref="file" required v-on:change="handleFileUpload()">
@@ -74,6 +75,23 @@ export default {
                 // console.log(res);
             })
         },
+        delAvatar(){
+            let formData = new FormData();
+            this.getId()
+            formData.append('id', this.id);
+            axios.post('/api/delavatar',
+            formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+            .then( r => {
+                console.log(r);
+                localStorage.setItem('avatar', 'NULL');
+                this.avatar = 'NULL'
+            })
+        },
         submitFile(){
             let formData = new FormData();
             formData.append('file', this.file);
@@ -127,6 +145,7 @@ export default {
             
             .then(res =>{
                 console.log()
+                this.review = ''
             })
         }
     }
@@ -134,6 +153,16 @@ export default {
 </script>
 
 <style lang="css" scoped>
+    .del_avatar{
+        background-image: url('img/xx.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin-top: -2.2vw;
+        margin-left: 8vw;
+    }
     .logout{
         display: flex;
         margin-top: 10vh;

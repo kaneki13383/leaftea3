@@ -145,7 +145,7 @@ export default {
       Velocity(el, { rotateZ: '100deg' }, { loop: 3 })
       Velocity(el, {
         rotateZ: '45deg',
-        translateY: '30px',
+        translateY: '150px',
         translateX: '30px',
         opacity: 0
       }, { complete: done })
@@ -171,12 +171,17 @@ export default {
   position: fixed;
   float: right;
   z-index: 5;
-  margin-top: -15vw;
+  margin-top: -60vh;
   padding: 0.7vw;
   color: #842029;
   font-size: 1.3rem;
   font-family: 'Comfortaa', sans-serif;
 }
+/* @media screen and (max-width: 1500px) {
+  .modal{
+    margin-top: -31vw;
+  }
+} */
 .modal a{
   border-bottom: 2px solid #842029;
 }
