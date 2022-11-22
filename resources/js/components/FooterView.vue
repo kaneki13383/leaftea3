@@ -87,12 +87,46 @@ footer a{
         width: 25vw;
     }
 }
+@media screen and (max-width: 768px) {
+    .navigation_footer li img{
+        width: 25vw;
+        display: none;
+    }
+    .navigation_footer li{
+        font-size: 3vw;
+    }  
+    .mobile_footer{
+        display: block;
+        margin-top: 5vw;
+    }
+    footer a{
+        font-size: 3vw;
+    }
+    .cop p{
+        font-size: 3vw;
+    }
+}
 @media screen and (max-width: 425px) {
     footer a {
         font-size: 5vw;
     }
     .cop p {
         font-size: 4.5vw;
+    }
+}
+@media (min-width: 320px) and (max-width: 375px) {
+    .logo_mobile{
+        width: 220px;
+        margin-top: 5vw;
+    }
+    .navigation_footer li{
+        font-size: 3.5vw;
+    }
+    footer a{
+        font-size: 3.5vw;
+    }
+    .cop p{
+        font-size: 3.5vw;
     }
 }
 </style>

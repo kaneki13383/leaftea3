@@ -1,17 +1,15 @@
 <template>
     <header id="menu">
-    <img class="logo_mobile" src="../../../public/img/logofooter.png" alt="">
-    <transition name="slide-fade">
-        <ul v-if="show" class="navigation">
+    <router-link to="/"><img class="logo_mobile" src="../../../public/img/logofooter.png" alt=""></router-link>
+        <ul id="navig" class="navigation">
             <li><router-link to="/about">О нас</router-link></li>
             <li><router-link to="/catalog">Каталог</router-link></li>
             <li class="logo_pc"><router-link to="/"><img src="../../../public/img/logo.png" alt=""></router-link></li>
             <li><router-link to="/shop">Магазин</router-link></li>
             <li class="login"><router-link v-show="!token" to="/login">Войти</router-link><router-link v-show="token" to="/dashboard">{{ name }}</router-link></li>
         </ul>
-    </transition>
 
-        <a class="burger-menu_button" @click="show = !show">
+        <a class="burger-menu_button" v-on:click="display()">
              <span class="burger-menu_lines"></span>
         </a>
 
@@ -25,7 +23,7 @@ export default {
             token: '',
             name: '',
             email: '',
-            show: true
+            width: window.innerWidth
         }
     },
 
@@ -36,10 +34,18 @@ export default {
             this.getEmail()
         }
     },
-
     mounted(){
         this.getToken()
         this.getName()
+        window.addEventListener("resize", function(){
+            let width_window = this.innerWidth;
+            // console.log(width_window);
+            if(width_window >= 1025){
+                document.getElementById('navig').style.opacity = '1'
+            }else{
+                document.getElementById('navig').style.opacity = '0'
+            }
+        }, false);
     },
 
     updated(){
@@ -56,8 +62,16 @@ export default {
         },
         getEmail(){
             this.email = localStorage.getItem('email')
+        },
+        display(){
+            if(document.getElementById('navig').style.opacity == '1'){
+                document.getElementById('navig').style.opacity = '0'
+            }else{
+                document.getElementById('navig').style.opacity = '1'
+            }            
         }
-    }
+
+    },
 }
 </script>
 <style lang="css" scoped>
@@ -75,6 +89,7 @@ export default {
         z-index: 100;
     }
     .navigation{
+        opacity: 1;
         display: flex;
         color: white;
         justify-content: space-around;
@@ -89,7 +104,10 @@ export default {
     .logo_mobile{
         display: none;
     }
-    @media screen and (max-width: 1024px) {        
+    @media screen and (max-width: 1024px) {   
+        .navigation{
+            opacity: 0;
+        }     
         .burger-menu_button{
             display: block;
         }

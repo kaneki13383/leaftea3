@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddProductController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DeleteProductController;
 use App\Http\Controllers\DeleteUser;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::group(['middleware' => 'auth:sanctum'], function(){
 //     Route::post('/load-avatar', '\App\Http\Controllers\LoadAvatarController');
 // });
-Auth::routes();
+
+// Route::post('/register', [RegisterController::class, 'registerUser']);
 Route::get('/products', [ProductController::class, 'all']);
 Route::get('/view/{id}', [ProductController::class, 'get']);
 Route::get('/users', [UserOutputController::class, 'all']);

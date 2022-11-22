@@ -20,6 +20,7 @@ Route::get('/{any}', function () {
 })->where('any','.*');
 
 
+Auth::routes();
 
 
 Route::post('/load-avatar', [LoadAvatarController::class, 'store'])->name('file.store');
