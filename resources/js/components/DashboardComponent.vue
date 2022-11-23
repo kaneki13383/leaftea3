@@ -310,5 +310,104 @@ export default {
         .info{
             font-size: 1.2rem;
         }
+        .logout input, .logout button, .logout label{
+            width: 40vw;
+            font-size: 28px;
+        }
+        div h3{
+            font-size: 40px;
+        }
+        .review-df textarea::placeholder{
+            font-size: 20px;
+        }
+        .review-df button{
+            width: 30vw;
+            font-size: 28px;
+            height: 60px;
+        }
+        .counter{
+            margin-left: 44vw;
+            margin-top: 17vw;;
+        }
+        
+    }
+    @media screen and (max-width: 768px) {
+        .counter{
+            font-size: 16px;
+            margin-left: 57vw;
+            margin-top: 22vw;
+        }   
+        .del_avatar
+        {
+            margin-left: 20vw;
+            margin-top: -4vw;
+        } 
+        .logout input, .logout button, .logout label{
+            width: 40vw;
+            font-size: 28px;
+            margin-top: 40px;
+        }    
+    }
+    @media screen and (max-width: 425px) {
+        .info, .review{
+            max-width: 380px;
+        }
+        .logout input, .logout button, .logout label{
+            width: 60vw;
+            font-size: 28px;
+            margin-top: 40px;
+        }
+        div h3{
+            font-size: 24px;
+        }
+        .counter{
+            font-size: 16px;
+            margin-left: 76vw;
+            margin-top: 40vw;
+        }
+        .review-df button{
+            width: 50vw;
+        }
+        .del_avatar
+        {
+            margin-left: 35vw;
+            margin-top: -7vw;
+        }
+    }
+    @media screen and (max-width: 375px) {
+        .info, .review{
+            max-width: 350px;
+        }
+    }
+    @media screen and (max-width: 320px) {
+        .info, .review{
+            max-width: 280px;
+        }
+        .logout input, .logout button, .logout label{
+            width: 80vw;
+            font-size: 28px;
+            margin-top: 40px;
+        }
+        div h3{
+            font-size: 20px;
+        }
+        .counter{
+            font-size: 16px;
+            margin-left: 80vw;
+            margin-top: 40vw;
+        }
+        .review-df button{
+            width: 50vw;
+        }
+        .del_avatar
+        {
+            margin-left: 40vw;
+            margin-top: -7vw;
+        }
+        .counter
+        {
+            width: 84px;
+            margin-top: 54vw;
+        }
     }
 </style>

@@ -9,10 +9,10 @@
             <input v-model="password" type="password" name="password" placeholder="Пароль">
         </div>
             <button @click.prevent="login" type="submit">Войти</button>
-        <div>
+        <div class="info_link_div">
             <router-link class="info_link_text" to="/register">Нет аккаунта?</router-link>
         </div>
-        <div>
+        <div class="info_link_div">
             <a v-if="!error" class="info_link_text">
                 Политика конфиденциальности
             </a><a v-else class="info_link_text">
@@ -200,6 +200,8 @@ export default {
             font-size: 2vw;
             width: 15vw;
             margin-bottom: 2vw;
+            height: 60px;
+            padding: 10px;
         }
         .info_link_text
         {
@@ -208,6 +210,133 @@ export default {
         h3{
             font-size: 2.5vw;
         }
-        
+        @media screen and (max-width: 1024px) {
+            .log{
+            background-size: 150%;
+            }
+            input::placeholder{
+            font-size: 1.5vw;
+            } 
+            input{
+                margin-top: 2vw;
+                font-size: 1.5vw;
+                width: 35vw;
+            }
+            .log button{
+                font-size: 2vw;
+                width: 15vw;
+                margin-bottom: 2vw;
+                height: 60px;
+                padding: 10px;
+            }
+            .info_link_text
+            {
+                font-size: 1.5vw;
+            }
+            h3{
+            font-size: 2.5vw;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .log{
+            background-size: 200%;
+            }
+            .background{
+                width: 70%;
+            }
+            h3{
+            font-size: 32px;
+            }
+            .info_link_text
+            {
+                font-size: 2vw;
+            }
+            .log button{
+                font-size: 24px;
+                width: 25vw;
+                margin-bottom: 2vw;
+                height: 60px;
+                padding: 10px;
+            }
+            input::placeholder{
+            font-size: 20px;
+            } 
+            input{
+                margin-top: 2vw;
+                font-size: 20px;
+                width: 45vw;
+            }
+        }
+        @media screen and (max-width: 425px) {
+            .log{
+            background-size: 420%;
+            }
+            .background{
+                width: 95%;
+                gap: 15px;
+            }
+            h3{
+            font-size: 32px;
+            }
+            .info_link_text
+            {
+                font-size: 16px;
+            }
+            .log button{
+                font-size: 24px;
+                width: 45vw;
+                margin-bottom: 15px;
+                height: 60px;
+                padding: 10px;
+            }
+            input::placeholder{
+            font-size: 20px;
+            } 
+            input{
+                margin-top: 2vw;
+                font-size: 20px;
+                width: 75vw;
+            }
+            .info_link_div{
+                margin: 10px;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            .log{
+                background-size: 500%;
+            }
+            .background{
+                width: 95%;
+                height: 500px;
+                padding: 13vw 0vw;
+                gap: 30px;
+            }
+            h3{
+            font-size: 24px;
+            margin: 0px;
+            }
+            .info_link_text
+            {
+                font-size: 14px;
+            }
+            .log button{
+                font-size: 24px;
+                width: 45vw;
+                margin: 15px 0px;
+                height: 50px;
+            }
+            input::placeholder{
+            font-size: 16px;
+            } 
+            input{
+                margin-top: 2vw;
+                font-size: 16px;
+                width: 75vw;
+            }
+            .info_link_div
+            {
+                margin: 0px;
+            }
+        }
     }
 </style>

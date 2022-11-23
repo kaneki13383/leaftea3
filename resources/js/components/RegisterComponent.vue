@@ -24,13 +24,13 @@
         <div class="info_link">
             <button @click.prevent="register" type="submit">Отправить</button>
         </div>
-        <div>
+        <div class="info_link_div">
         <router-link class="info_link_text" to="/login">
                 Уже зарегистрирован?
         </router-link>
        
         </div>
-        <div>
+        <div class="info_link_div">
         <a href="https://xn--b1aew.xn--p1ai/" class="info_link_text">
                 Политика конфиденциальности
             </a>
@@ -112,7 +112,6 @@ export default {
         flex-direction: column;
         gap: 1vw;
         width: 40%;
-        height: 75%;
         padding: 5vw 0;
     }
     .info_name{
@@ -186,5 +185,78 @@ export default {
         display: flex;
         justify-content: center;
         margin-top: 2vw;
+    }
+    @media screen and (max-width: 1024px) {
+        .form{
+            background-size: 130%;
+        }       
+        .background{
+            width: 60%;
+        }        
+        h3{
+            font-size: 40px;
+        }
+        div input{
+            width: 40vw;
+            font-size: 16px;
+        } 
+        div input::placeholder{
+            font-size: 16px;
+            
+        } 
+        .info_link button{
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .info_link_text{
+            font-size: 16px;
+        }
+        @media screen and (max-width: 768px) {
+            .form{
+                background-size: 160%;
+            }
+        }
+        @media screen and (max-width: 425px) {
+            .form{
+                background-size: 270%;
+                background-position-x: 40%;
+                
+            }        
+            h3{
+                font-size: 24px;
+            }  
+            .background{
+                width: 90%;
+                padding: 10vw 0px;
+            }
+            div input{
+                width: 65vw;
+            }
+            .info_link button{
+                width: 40vw;
+            }
+            
+        }
+        @media screen and (max-width: 375px) {
+            .form{
+                background-size: 300%;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            .form{
+                background-size: 350%;
+                background-position-x: 45%;
+            }
+            .info_link_text{
+            font-size: 14px;
+            }
+            div input::placeholder{
+            font-size: 12px;
+            } 
+            .info_link button{
+                width: 55vw;
+            }
+
+        }
     }
 </style>
