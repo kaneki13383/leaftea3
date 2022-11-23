@@ -4,7 +4,7 @@
         <div class="tovar">
             <div class="tea">
                 <div class="info_tea">
-                    <img src="img/angliiskiisadovnik1 1.png" alt="">
+                    <img src="products/965b6fc3d4940ad01439aab79750eaca.webp" alt="">
                     <h4>Английский садовник</h4>
                     <p>260 ₽/50гр.</p>
                     <router-link :to="{ path: '/product/1' }">Подробнее</router-link>
@@ -12,7 +12,7 @@
             </div>
             <div class="tea">
                 <div class="info_tea">
-                    <img src="img/angliiskiisadovnik1 1.png" alt="">
+                    <img src="products/38831f129d8dc667b575882f9955abd9.webp" alt="">
                     <h4>Вишневый Цитрус</h4>
                     <p>208 ₽/50гр.</p>
                     <router-link :to="{ path: '/product/2' }">Подробнее</router-link>
@@ -20,7 +20,7 @@
                 </div>
             <div class="tea">
                 <div class="info_tea">
-                    <img src="img/angliiskiisadovnik1 1.png" alt="">
+                    <img src="products/842209a26a2a4626db66503138f4298f.webp" alt="">
                     <h4>Секрет Императора</h4>
                     <p>280 ₽/50гр.</p>
                     <router-link :to="{ path: '/product/4' }">Подробнее</router-link>
@@ -28,16 +28,13 @@
                 </div>
             <div class="tea">
                 <div class="info_tea">
-                    <img src="img/angliiskiisadovnik1 1.png" alt="">
+                    <img src="products/2838cb45e5d7cfcc6a13fffce8e57b0c.webp" alt="">
                     <h4>Секрет Императрицы</h4>
                     <p>280 ₽/50гр.</p>
                     <router-link :to="{ path: '/product/4' }">Подробнее</router-link>
                 </div>
             </div>           
-        </div>
-        <div class="btn">
-            <button class="butt_more">Подробнее</button>
-        </div>            
+        </div>           
     </section>
 </template>
 <script>
@@ -50,7 +47,7 @@ export default {
 }
 </script>
 <style lang="css" scoped>
-    h3{
+  h3{
       color: white;
       text-align: center;
       font-size: 2.5vw;
@@ -75,9 +72,10 @@ export default {
   .tea{
       background-color: #191D21;
       box-shadow: black 14px 14px 8px 4px;
-      width: 20rem;
-      height: 30rem;
+      width: 22rem;
+      height: 27rem;
       color: white;
+      margin-bottom: 5vw;
   }
   .info_tea{
       display: flex;
@@ -87,15 +85,21 @@ export default {
       font-family: 'Comfortaa', cursive;
       margin-top: -5vw;
   }
+  .info_tea a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .info_tea img{
+        width: 13vw;
+        height: 13vw;  
+        border-radius: 10vw;
+  }
   .info_tea h4{
       font-size: 1.25vw;
   }
   .info_tea p{
       font-size: 1vw;
-  }
-  .info_tea a{
-    text-align: center;
-    padding-top: 0.25vw;
   }
   .info_tea a{
       width: 180px;
@@ -145,23 +149,70 @@ export default {
       .info_tea button{
          font-size: 2vw; 
       }
+      .butt_more{
+          font-size: 3vw;
+          width: 22vw;
+          height: 5vw;
+
+      }
+  }
+@media screen and (max-width: 1500px) {
+ 
+  h3{
+      font-size: 2.5;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .tea{
+      height: 26vw;
+  }
+  h3{
+      font-size: 3vw;
+  }
+  .butt_more{
+       margin-top: 5vw;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .tovar{
+      flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1500px){
+      
+      .info_tea{
+          margin-top: -8vw;
+      }
+      .info_tea h4{
+         font-size: 1.5vw; 
+         margin: 0vw;
+         margin-top: -1vw;
+      }
+      .info_tea p{
+         font-size: 1.5vw; 
+      }
+      .info_tea button{
+         font-size: 2vw; 
+      }
     .butt_more{
         font-size: 3vw;
         width: 22vw;
         height: 5vw;
-
     }
     .tea{
         width: 20rem;
         height: 22rem;
     }
-    .tea img{
-        width: 18rem;
-        height: 18rem;
-    }
     .tovar{
         column-gap: 4vw;
         row-gap: 0vw;
+    }
+    .info_tea img{
+        width: 14vw;
+        height: 14vw;  
+        border-radius: 25vw;
+        margin-bottom: 3vw;
+        margin-top: 2vw;
     }
   }
   @media screen and (max-width: 1500px){
@@ -171,16 +222,30 @@ export default {
     }
   }
   @media screen and (max-width:1440px) {
-    .info_tea button{
-        font-size: 1.7vw; 
-        width: 150px;
-        height: 40px;
+
+    .info_tea img{
+        width: 15vw;
+        height: 15vw;  
+        border-radius: 25vw;
+        margin-bottom: 4vw;
+        margin-top: 0vw;
     }
-    .butt_more{
-        margin-top: 6vw;
-        width: 250px;
-        height: 60px;
-        font-size: 2.5vw;
+    .info_tea a{
+        font-size: 1.7vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 1.6vw; 
+      }
+      .info_tea p{
+         font-size: 1.7vw; 
+      }
+    h3{
+        margin-bottom: 13vw;
+    }
+    .tea{
+        margin-bottom: 5vw;
     }
   }
   @media screen and (max-width: 1380px){
@@ -188,20 +253,33 @@ export default {
         column-gap: 10vw;
         row-gap: 10vw;
     }
-    .info_tea button{
-        font-size: 1.7vw; 
-        width: 125px;
-        height: 40px;
+    .info_tea img{
+        width: 16vw;
+        height: 16vw;  
+        border-radius: 25vw;
+        margin-bottom: 4vw;
+        margin-top: 0vw;
     }
-    .butt_more{
-        margin-top: 8vw;
-        width: 225px;
-        height: 60px;
-        font-size: 2.5vw;
+    .info_tea a{
+        font-size: 1.7vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 1.6vw; 
+      }
+      .info_tea p{
+         font-size: 1.7vw; 
+      }
+    h3{
+        margin-bottom: 13vw;
+    }
+    .tea{
+        margin-bottom: 5vw;
     }
   }
   @media screen and (max-width: 1300px){
-    .tovar{
+    .tovar-2{
         column-gap: 7vw;
         row-gap: 10vw;
     }
@@ -210,11 +288,31 @@ export default {
         width: 125px;
         height: 40px;
     }
-    .butt_more{
-        margin-top: 8vw;
-        width: 225px;
-        height: 60px;
-        font-size: 2.7vw;
+    .info_tea img{
+        width: 17vw;
+        height: 17vw;  
+        border-radius: 25vw;
+        margin-bottom: 5vw;
+        margin-top: 0vw;
+    }
+    .info_tea a{
+        font-size: 1.7vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 1.8vw; 
+      }
+      .info_tea p{
+         font-size: 2vw; 
+      }
+    h3{
+        margin-bottom: 13vw;
+    }
+    .tea{
+        margin-bottom: 5vw;
+        width: 20rem;
+        height: 23.5rem;
     }
   }
   @media screen and (max-width: 1220px){
@@ -233,6 +331,30 @@ export default {
         height: 60px;
         font-size: 2.7vw;
     }
+    .info_tea img{
+        width: 17vw;
+        height: 17vw;  
+        border-radius: 25vw;
+        margin-bottom: 5vw;
+        margin-top: 0vw;
+    }
+    .info_tea a{
+        font-size: 2vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 1.8vw; 
+      }
+      .info_tea p{
+         font-size: 2vw; 
+      }
+    h3{
+        margin-bottom: 13vw;
+    }
+    .tea{
+        margin-bottom: 5vw;
+    }
   }
   @media screen and (max-width: 1120px){
     .tovar{
@@ -244,12 +366,30 @@ export default {
         width: 125px;
         height: 40px;
     }
-    .butt_more{
-        margin-top: 10vw;
-        width: 225px;
-        height: 60px;
-        font-size: 3vw;
+    .info_tea img{
+        width: 19vw;
+        height: 19vw;  
+        border-radius: 25vw;
+        margin-bottom: 5vw;
+        margin-top: 0vw;
     }
+    .info_tea a{
+        font-size: 2.2vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 2vw; 
+      }
+      .info_tea p{
+         font-size: 2vw; 
+      }
+      .tea{
+        margin-bottom: 5vw;
+      }
+      h3{
+        margin-bottom: 10vw;
+      }
   }
   @media screen and (max-width:1080px){
     .info_tea h4{
@@ -273,6 +413,12 @@ export default {
         height: 60px;
         font-size: 3.2vw;
     }
+    .tea{
+        margin-bottom: 3vw;
+    }
+    h3{
+        margin-bottom: 13vw;
+    }
   }
   @media screen and (max-width:1040px) {
     .info_tea button{
@@ -286,9 +432,44 @@ export default {
         height: 60px;
         font-size: 3.5vw;
     }
-    
+    .info_tea img{
+        width: 22vw;
+        height: 22vw;  
+        border-radius: 25vw;
+        margin-bottom: 5vw;
+        margin-top: 0vw;
+    }
+    .info_tea a{
+        font-size: 2.5vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 2.2vw; 
+      }
+      .info_tea p{
+         font-size: 2vw; 
+      }
   }
   @media screen and (max-width:1000px) {
+    .info_tea img{
+        width: 22vw;
+        height: 22vw;  
+        border-radius: 25vw;
+        margin-bottom: 5vw;
+        margin-top: 0vw;
+    }
+    .info_tea a{
+        font-size: 2.7vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 2.5vw; 
+      }
+      .info_tea p{
+         font-size: 2vw; 
+      }
     .info_tea button{
         font-size: 2.5vw; 
         width: 125px;
@@ -300,13 +481,32 @@ export default {
         height: 60px;
         font-size: 3.5vw;
     }
+    .tea{
+        margin-bottom: 5vw;
+    }
+    h3{
+        margin-bottom: 12vw;
+    }
   }
   @media screen and (max-width:960px){
-    .tea img{
-        margin-top: -4vw;
-        width: 20rem;
-        height: 20rem;
+    .info_tea img{
+        width: 22vw;
+        height: 22vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+        margin-top: -3vw;
     }
+    .info_tea a{
+        font-size: 2.7vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 2.5vw; 
+      }
+      .info_tea p{
+         font-size: 2vw; 
+      }
     .tea{
         width: 20rem;
         height: 22rem;
@@ -315,7 +515,7 @@ export default {
         margin: 0vw;
         margin-top: -3.5vw;
     }
-    .tovar{
+    .tovar-2{
         margin-top: 15vw;
         column-gap: 12vw;
         row-gap: 15vw;
@@ -347,8 +547,38 @@ export default {
         height: 60px;
         font-size: 4vw;
     }
+    .info_tea img{
+        width: 23vw;
+        height: 23vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+        margin-top: -3vw;
+    }
+    .info_tea a{
+        font-size: 3.1vw; 
+        width: 155px;
+        height: 47px;
+    }
+    .info_tea h4{
+         font-size: 2.5vw; 
+      }
+      .info_tea p{
+         font-size: 2vw; 
+      }
   }
   @media screen and (max-width:860px) {
+    .info_tea img{
+        width: 28vw;
+        height: 28vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+        margin-top: -4vw;
+    }
+    .info_tea a{
+        font-size: 3.1vw; 
+        width: 155px;
+        height: 47px;
+    }
     .info_tea h4{
         font-size: 2.5vw; 
     }
@@ -377,7 +607,7 @@ export default {
         column-gap: 8vw;
         row-gap: 16vw;
     }
-    .tea img{
+    .info_tea img{
         margin-top: -6vw;
     }
     .tea{
@@ -400,8 +630,20 @@ export default {
         height: 50px;
         font-size: 4vw;
     }
+    .info_tea img{
+        width: 28vw;
+        height: 28vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+        margin-top: -4vw;
+    }
+    .info_tea a{
+        font-size: 3.1vw; 
+        width: 155px;
+        height: 47px;
+    }
   }
-  @media screen and (max-width: 740px) {
+  @media screen and (max-width: 768px) {
     .tovar{
         column-gap: 5vw;
         row-gap: 16vw;
@@ -410,12 +652,12 @@ export default {
         font-size: 2.7vw; 
     }
       .info_tea p{
-        font-size: 2.7vw; 
+        font-size: 3vw; 
     }
-    .info_tea button{
-        font-size: 3.5vw; 
-        width: 125px;
-        height: 45px;
+    .info_tea a{
+        font-size: 3.3vw; 
+        width: 155px;
+        height: 47px;
     }
     .butt_more{
         margin-top: 12.5vw;
@@ -423,12 +665,24 @@ export default {
         height: 50px;
         font-size: 4vw;
     }
+    .info_tea img{
+        width: 28vw;
+        height: 28vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+        margin-top: -4vw;
+    }
   }
   @media screen and (max-width:700px){
     .tovar{
         margin-top: 16vw;
         column-gap: 10vw;
         row-gap: 18vw;
+    }
+    .info_tea a{
+        font-size: 3.5vw;
+        width: 160px;
+        height: 50px;
     }
     .info_tea h4{
         font-size: 2.8vw; 
@@ -438,7 +692,7 @@ export default {
     }
     .tea{
         width: 20rem;
-        height: 23.5rem;
+        height: 21rem;
     }
     h3{
         font-size: 5vw;
@@ -454,10 +708,22 @@ export default {
         height: 50px;
         font-size: 4vw;
     }
+    .info_tea img{
+        width: 28vw;
+        height: 28vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+        margin-top: -3vw;
+    }
   }
   @media screen and (max-width:680px){
     .info_tea h4{
         font-size: 3.5vw; 
+    }
+    .info_tea a{
+        font-size: 4.3vw;
+        width: 170px;
+        height: 50px;
     }
       .info_tea p{
         font-size: 3.5vw; 
@@ -469,7 +735,7 @@ export default {
     }
     .tea{
         width: 20rem;
-        height: 25.5rem;
+        height: 22rem;
     }
     .butt_more{
         font-size: 5vw;
@@ -482,6 +748,11 @@ export default {
     .info_tea h4{
         font-size: 3.5vw; 
     }
+    .info_tea a{
+        font-size: 4.3vw;
+        width: 165px;
+        height: 50px;
+    }
       .info_tea p{
         font-size: 3.5vw; 
     }
@@ -492,7 +763,7 @@ export default {
     }
     .tea{
         width: 20rem;
-        height: 25.5rem;
+        height: 21rem;
     }
     .butt_more{
         font-size: 5vw;
@@ -507,6 +778,11 @@ export default {
         width: 130px;
         height: 45px;
     }
+    .info_tea a{
+        font-size: 4.5vw;
+        width: 165px;
+        height: 50px;
+    }
     .butt_more{
         font-size: 5vw;
         width: 220px;
@@ -519,6 +795,11 @@ export default {
         font-size: 4.5vw; 
         width: 130px;
         height: 45px;
+    }
+    .info_tea a{
+        font-size: 4.5vw;
+        width: 165px;
+        height: 50px;
     }
     .butt_more{
         font-size: 5.5vw;
@@ -533,6 +814,17 @@ export default {
         width: 130px;
         height: 45px;
     }
+    .info_tea a{
+        font-size: 4.5vw;
+        width: 160px;
+        height: 45px;
+    }
+    .info_tea img{
+        width: 30vw;
+        height: 30vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+    }
     .butt_more{
         font-size: 6vw;
         width: 220px;
@@ -544,6 +836,17 @@ export default {
     .info_tea h4{
         font-size: 3.8vw; 
     }
+    .info_tea img{
+        width: 30vw;
+        height: 30vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+    }
+    .info_tea a{
+        font-size: 4.5vw;
+        width: 160px;
+        height: 45px;
+    }
       .info_tea p{
         font-size: 3.8vw; 
     }
@@ -553,31 +856,19 @@ export default {
     .butt_more{
         font-size: 5vw;
     }
-    .tea img{
-        margin-top: -12.5vw;
+    .info_tea img{
+        margin-top: -4vw;
     }
     .tea{
         width: 20rem;
-        height: 23.5rem;
+        height: 20rem;
     }
     .tovar{
         margin-top: 25vw;
         row-gap: 30vw;
     }
   }
-  @media screen and (max-width:540px) {
-    .info_tea button{
-        font-size: 5vw; 
-        width: 120px;
-        height: 40px;
-    }
-    .butt_more{
-        font-size: 6vw;
-        width: 200px;
-        height: 50px;
-        margin-top: 15vw;
-    }
-  }
+
   @media screen and (max-width:520px) {
     .info_tea button{
         font-size: 5vw; 
@@ -597,16 +888,32 @@ export default {
         width: 120px;
         height: 40px;
     }
+    .info_tea a{
+        font-size: 4.5vw;
+        width: 150px;
+        height: 40px;
+    }
     .butt_more{
         font-size: 6vw;
         width: 200px;
         height: 50px;
         margin-top: 15vw;
     }
+    .info_tea img{
+        width: 35vw;
+        height: 35vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+    }
   }
   @media screen and (max-width: 480px) {
     .info_tea h4{
         font-size: 4.5vw; 
+    }
+    .info_tea a{
+        font-size: 4.5vw;
+        width: 150px;
+        height: 40px;
     }
       .info_tea p{
         font-size: 5vw; 
@@ -618,7 +925,7 @@ export default {
     }
     .tea{
         width: 20rem;
-        height: 25.5rem;
+        height: 21rem;
     }
     .butt_more{
         font-size: 6vw;
@@ -630,92 +937,135 @@ export default {
         margin-top: 15vw;
     }
   }
-  @media screen and (max-width: 425px) {
-    .info_tea button{
+  @media screen and (max-width: 440px) {
+    .info_tea img{
+        width: 40vw;
+        height: 40vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+    }
+    .info_tea a{
         font-size: 5vw;
-        width: 125px;
+        width: 150px;
         height: 40px;
+    }
+  }
+  @media screen and (max-width: 425px) and (min-width: 376px){
+    h3{
+        font-size: 6.5vw;
+        margin-top: 15vw;
+        margin-bottom: 30vw;
+    }
+    .info_tea a{
+        font-size: 4vw;
+        width: 150px;
+        height: 40px;
+    }
+    .info_tea img{
+        width: 50vw;
+        height: 50vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
     }
     .butt_more{
         font-size: 7vw;
-        margin-top: 17vw;
+        margin-top: 1vw;
         width: 200px;
         height: 50px;
     }
-  }
-  @media screen and (max-width: 400px) {
-    .info_tea h4{
-        font-size: 7.5vw; 
-        text-align: center;
-    }
-      .info_tea p{
-        font-size: 7vw; 
-    }
     .tea{
-        width: 22rem;
-        height: 30rem;
-    }
-    .info_tea button{
-        font-size: 8vw;
-        width: 180px;
-        height: 60px;
-    }
-    .butt_more{
-        font-size: 9vw;
-        margin-top: 20vw;
-        width: 250px;
-        height: 75px;
-    }
-    .tea img{
-        margin-top: -18vw;
-    }
+      width: 19rem;
+      height: 22.5rem;
+      margin-bottom: 5vw;
+  }
   }
   @media screen and (max-width:375px){
-    .info_tea h4{
-        font-size: 5.5vw; 
-        text-align: center;
+    h3{
+        font-size: 6.5vw;
+        margin-top: 15vw;
+        margin-bottom: 30vw;
     }
-      .info_tea p{
-        font-size: 5.5vw; 
-    }
-    .tea{
-        margin-top: 10vw;
-        width: 18rem;
-        height: 20rem;
-    }
-    .info_tea button{
-        font-size: 7vw;
-        width: 125px;
+    .info_tea a{
+        font-size: 4vw;
+        width: 150px;
         height: 40px;
     }
+    .info_tea img{
+        width: 50vw;
+        height: 50vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+    }
     .butt_more{
         font-size: 7vw;
-        margin-top: 20vw;
+        margin-top: 1vw;
         width: 200px;
-        height: 45px;
+        height: 50px;
     }
-    .tea img{
-        margin-top: -18vw;
-        width: 15rem;
-        height: 15rem;
+    .tea{
+      width: 18.5rem;
+      height: 20.5rem;
+      margin-bottom: 5vw;
     }
   }
-  @media screen and (max-width:320px){
-    .tea{
-        margin-top: 10vw;
-        width: 15.5rem;
-        height: 18.5rem;
+  @media screen and (max-width:355px){
+    h3{
+        font-size: 6.5vw;
+        margin-top: 15vw;
+        margin-bottom: 30vw;
     }
-    .butt_more{
-        font-size: 7vw;
-        margin-top: 20vw;
+    .info_tea a{
+        font-size: 5vw;
         width: 155px;
         height: 45px;
     }
-    .info_tea button{
-        font-size: 6vw;
-        width: 100px;
-        height: 35px;
+    .info_tea img{
+        width: 50vw;
+        height: 50vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+    }
+
+    .tea{
+      width: 17.5rem;
+      height: 20.5rem;
+      margin-bottom: 5vw;
+    }
+    .info_tea h4{
+        font-size: 5.5vw; 
+    }
+      .info_tea p{
+        font-size: 5.5vw; 
+    }
+  }
+  @media screen and (max-width:320px){
+    h3{
+        font-size: 6.5vw;
+        margin-top: 15vw;
+        margin-bottom: 30vw;
+    }
+    .info_tea a{
+        font-size: 5vw;
+        width: 155px;
+        height: 45px;
+    }
+    .info_tea img{
+        width: 50vw;
+        height: 50vw;  
+        border-radius: 25vw;
+        margin-bottom: 10vw;
+    }
+
+    .tea{
+      width: 16rem;
+      height: 19rem;
+      margin-bottom: 5vw;
+    }
+    .info_tea h4{
+        font-size: 5.5vw; 
+    }
+      .info_tea p{
+        font-size: 5.5vw; 
     }
   }
 </style>

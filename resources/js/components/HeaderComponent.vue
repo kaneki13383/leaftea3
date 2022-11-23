@@ -9,7 +9,7 @@
             <li class="login"><router-link v-show="!token" to="/login">Войти</router-link><router-link v-show="token" to="/dashboard">{{ name }}</router-link></li>
         </ul>
 
-        <a class="burger-menu_button" v-on:click="display()">
+        <a class="burger-menu_button" id="burger" v-on:click="display()">
              <span class="burger-menu_lines"></span>
         </a>
 
@@ -45,8 +45,10 @@ export default {
                 document.getElementById('navig').style.opacity = '1'
             }else{
                 document.getElementById('navig').style.opacity = '0'
+                document.getElementById('burger').style.position = 'absolute'
             }
         }, false);
+        
     },
 
     updated(){
@@ -67,8 +69,12 @@ export default {
         display(){
             if(document.getElementById('navig').style.opacity == '1'){
                 document.getElementById('navig').style.opacity = '0'
+                document.getElementById('navig').style.display = 'none'
+                document.getElementById('burger').style.position = 'absolute'
             }else{
                 document.getElementById('navig').style.opacity = '1'
+                document.getElementById('navig').style.display = 'flex'
+                document.getElementById('burger').style.position = 'fixed'
             }            
         }
 
@@ -90,7 +96,6 @@ export default {
         z-index: 100;
     }
     .navigation{
-        opacity: 1;
         display: flex;
         color: white;
         justify-content: space-around;
@@ -98,6 +103,7 @@ export default {
         margin-top: 2vh;
         font-size: 1.5rem;
         font-family: 'Comfortaa', cursive;
+        transition-duration: 1.5s;
     }
     .navigation a{
         color: white;
