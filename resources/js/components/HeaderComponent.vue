@@ -39,6 +39,7 @@ export default {
         this.getName()
         window.addEventListener("resize", function(){
             let width_window = this.innerWidth;
+            
             // console.log(width_window);
             if(width_window >= 1025){
                 document.getElementById('navig').style.opacity = '1'

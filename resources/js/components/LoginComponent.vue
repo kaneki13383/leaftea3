@@ -187,6 +187,27 @@ export default {
         width: 50%;
         height: 60%;
         padding: 5vw 0;
-        }       
+        }  
+        input::placeholder{
+            font-size: 1.5vw;
+        } 
+        input{
+            margin-top: 2vw;
+            font-size: 1.5vw;
+            width: 35vw;
+        }
+        .log button{
+            font-size: 2vw;
+            width: 15vw;
+            margin-bottom: 2vw;
+        }
+        .info_link_text
+        {
+            font-size: 1.5vw;
+        }
+        h3{
+            font-size: 2.5vw;
+        }
+        
     }
 </style>
