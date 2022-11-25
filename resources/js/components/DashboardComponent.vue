@@ -308,6 +308,8 @@ export default {
             gap: 10vw;
         }
         .info{
+            width: 80vw;
+            height: auto;
             font-size: 1.2rem;
         }
         .logout input, .logout button, .logout label{

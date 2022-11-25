@@ -185,4 +185,11 @@ export default {
     }
 
 }
+@media screen and (max-width: 320px) {
+    .logo_mobile{
+            width: 150px;
+            height: 50px;
+            margin-top: 8vw;
+        }
+}
 </style>

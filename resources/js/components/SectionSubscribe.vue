@@ -162,6 +162,50 @@ form button:hover{
             font-size: 25px;
         }    
 }
+@media screen and (max-width: 630px) {
+    .subscribe{
+            height: 80vw;
+            background-size: 180%;
+        }
+        .form h5{
+            font-size: 3vw;
+            width: 80vw;
+        }
+        form input{
+            width: 55vw;
+            margin-bottom: 3vw;
+        }
+        .subscribe div{
+            padding-top: 15px;
+        }
+        .button_sub{
+            font-size: 18px;
+            width: 40vw;
+            height: 40px;
+        }
+}
+@media screen and (max-width: 475px) {
+    .subscribe{
+            height: 80vw;
+            background-size: 200%;
+        }
+        .form h5{
+            font-size: 3vw;
+            width: 80vw;
+        }
+        form input{
+            width: 55vw;
+            margin-bottom: 3vw;
+        }
+        .subscribe div{
+            padding-top: 15px;
+        }
+        .button_sub{
+            font-size: 18px;
+            width: 40vw;
+            height: 40px;
+        }
+}
 @media screen and (max-width: 425px) {
         .subscribe{
             height: 80vw;
@@ -183,6 +227,35 @@ form button:hover{
             width: 40vw;
             height: 40px;
         }
+        
+}
+@media screen and (max-width: 400px) {
+    .subscribe{
+            height: 80vw;
+            background-size: 220%;
+        }
+        .form h5{
+            font-size: 5vw;
+            width: 80vw;
+        }
+        form input{
+            width: 55vw;
+            margin-bottom: 3vw;
+        }
+        .subscribe div{
+            padding-top: 15px;
+        }
+        .button_sub{
+            font-size: 18px;
+            width: 40vw;
+            height: 40px;
+        }
+}
+@media screen and (max-width: 375px) {
+    .subscribe{
+            height: 120vw;
+            background-size: 260%;
+    }
 }
 @media screen and (max-width: 320px) {
     .subscribe{

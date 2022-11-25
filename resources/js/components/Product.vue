@@ -417,10 +417,18 @@ h3 span{
     color: white;
     font-size: 1.2vw;
   }
+  .block {
+    display: flex;
+    justify-content: center;
+  }
 }
 @media screen and (max-width: 1000px) {
   .compound{
     display: none;
+  }
+  .block {
+    display: flex;
+    justify-content: center;
   }
   h4{
     font-size: 2vw;
@@ -447,6 +455,10 @@ h3 span{
     height: 35px;
     font-size: 2vw;
   }
+  .block {
+    display: flex;
+    justify-content: center;
+  }
   .btn_price button{
     width: 3vw;
     height: 35px;
@@ -466,6 +478,10 @@ h3 span{
     width: 3vw;
     height: 35px;
     font-size: 2.5vw;
+  }
+  .block {
+    display: flex;
+    justify-content: center;
   }
   .price p{
   font-size: 3.5vw;
@@ -495,6 +511,10 @@ h4{
     flex-direction: column;
     align-content: space-around;
     align-items: center;
+  }
+  .block {
+    display: flex;
+    justify-content: center;
   }
   h4{
     font-size: 3vw;
@@ -543,6 +563,10 @@ h4{
   .block {
     column-gap: 2vw;
 }
+.block {
+    display: flex;
+    justify-content: center;
+  }
 .price p{
   font-size: 4vw;
 }
@@ -562,6 +586,10 @@ h4{
     font-size: 2.2vw;
     text-align: center;
     width: 550px;
+  }
+  .block {
+    display: flex;
+    justify-content: center;
   }
   .btn_price .add{
     width: 100px;
@@ -619,12 +647,20 @@ h4{
   .price p {
     font-size: 4.5vw;
   }
+  .block {
+    display: flex;
+    justify-content: center;
+  }
 }
 @media screen and (max-width: 531px) {
 .price{
   flex-direction: column;
   
 }
+.block {
+    display: flex;
+    justify-content: center;
+  }
 .price p{
   font-size: 5vw;
   }
@@ -671,6 +707,10 @@ h4{
     margin: 5vw 0;
     border-radius: 75vw;
   }
+  .block {
+    display: flex;
+    justify-content: center;
+  }
   h4 {
     font-size: 4.5vw;
     text-align: center;
@@ -688,6 +728,126 @@ h4{
     width: 350px;
     margin-top: 2.5vw;
   }
+}
+@media screen and (max-width: 425px) and (min-width: 376px) {
+  .block {
+    display: flex;
+    justify-content: center;
+  }
+  h4 {
+    font-size: 4.5vw;
+    text-align: center;
+  }
+  .info_text p {
+    font-size: 3.5vw;
+    text-align: center;
+    width: 350px;
+  }
+  h3{
+    font-size: 4.5vw;
+  }
+.info_tovar p {
+    font-size: 3vw;
+    width: 325px;
+    margin-top: 2.5vw;
+  }
+  .price p{
+  font-size: 6vw;
+  }
+.btn_price .add{
+    width: 150px;
+    height: 35px;
+    font-size: 5vw;
+  }
+  .btn_price button{
+    width: 35px;
+    height: 35px;
+    font-size: 5vw;
+  }
+  .foto_block img{
+    width: 100px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 375px) and (min-width: 321px) {
+  .block {
+    display: flex;
+    justify-content: center;
+  }
+  h4 {
+    font-size: 4.5vw;
+    text-align: center;
+  }
+  .info_text p {
+    font-size: 3.5vw;
+    text-align: center;
+    width: 350px;
+  }
+  h3{
+    font-size: 4.5vw;
+  }
+.info_tovar p {
+    font-size: 3.2vw;
+    width: 275px;
+    margin-top: 2.5vw;
+  }
+  .price p{
+  font-size: 6vw;
+  }
+.btn_price .add{
+    width: 150px;
+    height: 35px;
+    font-size: 5vw;
+  }
+  .btn_price button{
+    width: 35px;
+    height: 35px;
+    font-size: 5vw;
+  }
+  .foto_block img{
+    width: 100px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 320px) {
+  .block {
+    display: flex;
+    justify-content: center;
+  }
+  h4 {
+    font-size: 4.5vw;
+    text-align: center;
+  }
+  .info_text p {
+    font-size: 3.2vw;
+    text-align: center;
+    width: 300px;
+  }
+  h3{
+    font-size: 4.5vw;
+  }
+.info_tovar p {
+    font-size: 3.4vw;
+    width: 250px;
+    margin-top: 2.5vw;
+  }
+  .price p{
+  font-size: 6vw;
+  }
+.btn_price .add{
+    width: 150px;
+    height: 35px;
+    font-size: 5vw;
+  }
+  .btn_price button{
+    width: 35px;
+    height: 35px;
+    font-size: 5vw;
+  }
+  .foto_block img{
+    width: 100px;
+  }
+  
 }
 </style>
 
