@@ -257,7 +257,8 @@ h5{
 .block{
     display: flex;
     align-items: center;
-    margin: 0 100px 0 50px;
+    /* justify-content: center; */
+    /* margin: 0 100px 0 50px; */
     column-gap: 10vw;
 }
 .foto_block{
@@ -417,4 +418,277 @@ h3 span{
     font-size: 1.2vw;
   }
 }
+@media screen and (max-width: 1000px) {
+  .compound{
+    display: none;
+  }
+  h4{
+    font-size: 2vw;
+  }
+  .info_text p{
+    font-size: 1.5vw;
+    width:40vw;
+  }
+  .info_tea img{
+    width: 250px;
+    height: 250px;
+  }
+  .foto_block img{
+    width: 110px;
+    height: 100px;
+  }
+  .info_tovar p{
+  font-size: 1.7vw;
+}
+}
+@media screen and (max-width: 960px) {
+  .btn_price .add{
+    width: 150px;
+    height: 35px;
+    font-size: 2vw;
+  }
+  .btn_price button{
+    width: 3vw;
+    height: 35px;
+    font-size: 2vw;
+  }
+  .price p{
+  font-size: 2.5vw;
+}
+}
+@media screen and (max-width: 740px) {
+  .btn_price .add{
+    width: 150px;
+    height: 35px;
+    font-size: 2.5vw;
+  }
+  .btn_price button{
+    width: 3vw;
+    height: 35px;
+    font-size: 2.5vw;
+  }
+  .price p{
+  font-size: 3.5vw;
+}
+h4{
+    font-size: 3vw;
+  }
+  .info_text p{
+    font-size: 2vw;
+    width:40vw;
+  }
+  h3{
+    margin: 5vw 0 3vw;
+    font-size: 3vw;
+  }
+  .info_tovar p{
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 730px) {
+  .d-f{
+    display: flex;
+    margin: 2.5vw 100px 0;
+    justify-content: center;
+    column-gap: 9vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+  }
+  h4{
+    font-size: 3vw;
+    text-align: center;
+  }
+  .info_text p{
+    font-size: 2.5vw;
+    text-align: center;
+    width: 600px;
+}
+.info_text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vw;
+    row-gap: 2vw;
+}
+.info_tea img{
+    width: 250px;
+    height: 250px;
+    margin: 5vw 0;
+  }
+  .btn_price .add{
+    width: 150px;
+    height: 40px;
+    font-size: 3vw;
+  }
+  .btn_price button{
+    width: 4vw;
+    height: 40px;
+    font-size: 3vw;
+  }
+  .price p{
+  font-size: 5vw;
+}
+.block {
+    column-gap: 5vw;
+}
+.info_tovar p{
+    font-size: 2.2vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .block {
+    column-gap: 2vw;
+}
+.price p{
+  font-size: 4vw;
+}
+.btn_price .add{
+    width: 125px;
+    height: 40px;
+    font-size: 3vw;
+  }
+  .btn_price button{
+    width: 4vw;
+    height: 40px;
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 640px) {
+  .info_text p{
+    font-size: 2.2vw;
+    text-align: center;
+    width: 550px;
+  }
+  .btn_price .add{
+    width: 100px;
+    height: 40px;
+    font-size: 2.7vw;
+  }
+  .btn_price button{
+    width: 4vw;
+    height: 40px;
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .block {
+    flex-direction: column;
+  }
+  .price {
+    flex-direction: row;
+    column-gap: 5vw;
+    align-items: center;
+    margin-top: 5vw;
+  } 
+  .price p {
+    font-size: 5vw;
+  }
+  .btn_price .add{
+    width: 125px;
+    height: 40px;
+    font-size: 3vw;
+  }
+  .btn_price button{
+    width: 4vw;
+    height: 40px;
+    font-size: 3vw;
+  }
+  h4 {
+    font-size: 3.5vw;
+    text-align: center;
+  }
+.info_text p {
+    font-size: 2.5vw;
+    text-align: center;
+    width: 500px;
+  }
+  h3{
+    font-size: 3.5vw;
+  }
+.info_tovar p {
+    font-size: 2.2vw;
+    width: 500px;
+    margin-top: 2.5vw;
+  }
+}
+@media screen and (max-width: 565px) {
+  .price p {
+    font-size: 4.5vw;
+  }
+}
+@media screen and (max-width: 531px) {
+.price{
+  flex-direction: column;
+  
+}
+.price p{
+  font-size: 5vw;
+  }
+.btn_price .add{
+    width: 150px;
+    height: 35px;
+    font-size: 4vw;
+  }
+  .btn_price button{
+    width: 35px;
+    height: 35px;
+    font-size: 4vw;
+  }
+  .block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .info_text p {
+    font-size: 2.2vw;
+    text-align: center;
+    width: 450px;
+  }
+  h4 {
+    font-size: 3vw;
+    text-align: center;
+  }
+  h3{
+    font-size: 3vw;
+  }
+.info_tovar p {
+    font-size: 2.2vw;
+    width: 450px;
+    margin-top: 2.5vw;
+  }
+  .info_tea img {
+    border-radius: 50vw;
+}
+}
+@media screen and (max-width: 426px) {
+  .info_tea img{
+    width: 200px;
+    height: 200px;
+    margin: 5vw 0;
+    border-radius: 75vw;
+  }
+  h4 {
+    font-size: 4.5vw;
+    text-align: center;
+  }
+  .info_text p {
+    font-size: 2.5vw;
+    text-align: center;
+    width: 350px;
+  }
+  h3{
+    font-size: 4.5vw;
+  }
+.info_tovar p {
+    font-size: 2.5vw;
+    width: 350px;
+    margin-top: 2.5vw;
+  }
+}
 </style>
+
+

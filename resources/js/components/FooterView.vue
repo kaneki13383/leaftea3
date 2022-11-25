@@ -1,7 +1,7 @@
 <template>
      <footer>
         <ul class="navigation_footer">
-            <li><img src="img/logofooter.png" alt=""></li>
+            <li><img src="/img/logofooter.png" alt=""></li>
             <li>Главная</li>
             <li>О нас</li>
             <li>Каталог</li>            

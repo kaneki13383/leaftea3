@@ -42,8 +42,10 @@ export default {
             
             // console.log(width_window);
             if(width_window >= 1025){
+                document.getElementById('navig').style.display = 'flex'
                 document.getElementById('navig').style.opacity = '1'
             }else{
+                document.getElementById('navig').style.display = 'none'
                 document.getElementById('navig').style.opacity = '0'
                 document.getElementById('burger').style.position = 'absolute'
             }
