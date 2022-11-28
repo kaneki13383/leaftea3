@@ -88,6 +88,7 @@ export default {
     }
     .navigation img{
         width: 250px;
+    
     }
     .info{
         width: 1200px;

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddProductController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DeleteProductController;
 use App\Http\Controllers\DeleteUser;
 use App\Http\Controllers\LoadAvatarController;
@@ -42,3 +43,6 @@ Route::post('/review', [ReviewController::class, 'addreview']);
 Route::get('/getreview', [ReviewController::class, 'getreview']);
 Route::delete('/deletereview/{id}', [ReviewController::class, 'deletereview']);
 Route::post('/delavatar', [LoadAvatarController::class, 'delavatar']);
+Route::post('/addproduct', [CartController::class, 'addCart']);
+Route::post('/getproductcart', [CartController::class, 'getProduct']);
+Route::post('/product', [CartController::class, 'product']);

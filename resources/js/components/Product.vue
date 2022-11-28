@@ -36,7 +36,7 @@
           <button @click.prevent="minusProduct">-</button>
           <button @click.prevent="plusProduct">+</button>
           <button v-if="!token" class="add" id="show-modal" @click="showFunc">Добавить</button>
-          <button class="add" v-else>Добавить</button>
+          <button class="add" v-else @click="addCart">Добавить</button>
           
         </div>
       </div>
@@ -96,6 +96,26 @@ export default {
             })
         },
 
+        addCart(){
+          let formData = new FormData();
+            formData.append('id_user', localStorage.getItem('id'));
+            formData.append('id_product', this.id);
+            formData.append('count', this.weight);
+            formData.append('summ', this.summ);
+            // formData.append('', )
+          axios.post('/api/addproduct',
+          formData,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            },
+          )
+          .then(res =>{
+            // console.log(res);
+          })
+        },
+
         parseURL(){
             let url = window.location.pathname
             this.id = url.split('/')[2]
@@ -149,7 +169,9 @@ export default {
         translateX: '30px',
         opacity: 0
       }, { complete: done })
-    }
+    },
+
+
 
     }
 

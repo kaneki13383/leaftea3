@@ -72,6 +72,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 3vw;
 }
 .order{
     width: 550px;
@@ -87,6 +88,7 @@ export default {
     translate: -1vw -1vw;
     width: 150px;
     height: 150px;
+    border-radius: 25vw;
 }
 .comm{
     display: flex;

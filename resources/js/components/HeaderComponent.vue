@@ -5,7 +5,7 @@
             <li><router-link to="/about">О нас</router-link></li>
             <li><router-link to="/catalog">Каталог</router-link></li>
             <li class="logo_pc"><router-link to="/"><img src="../../../public/img/logo.png" alt=""></router-link></li>
-            <li><router-link to="/shop">Магазин</router-link></li>
+            <li><router-link to="/shop">Корзина</router-link></li>
             <li class="login"><router-link v-show="!token" to="/login">Войти</router-link><router-link v-show="token" to="/dashboard">{{ name }}</router-link></li>
         </ul>
 
