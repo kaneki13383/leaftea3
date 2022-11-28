@@ -2,7 +2,10 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <Kostyl></Kostyl>
-
+    <div v-for="inf in info, info2" :key="inf">
+        <p>{{inf.summ}}</p>
+        <p>{{inf.name_product}}</p>
+    </div>
   </div>
   <div>
 
@@ -18,8 +21,9 @@ import FooterView from './FooterView.vue';
 
 export default {
     data() {
-        return {
-          info: []
+        return {            
+          info: [],
+          info2: []
         };
     },
     mounted(){    
@@ -41,6 +45,7 @@ export default {
             },
           )
           .then(res => {
+            this.info = res.data;
             let id_products = [];
             for(let i = 0; i < res.data.length; i++ ){
               // console.log(res.data[i]['id_product']);
@@ -58,8 +63,8 @@ export default {
                 }
             },)
               .then( r => {
-                this.info = r.data
-                // console.log(r);
+                this.info2 = r.data
+                // console.log();
               })
           })
       }
@@ -68,5 +73,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
+  div p{
+    color: white;
+  }
+  div img{
+    width: 100px;
+    height: 200px;
+    border-radius: 25px;
+  }
 </style>
