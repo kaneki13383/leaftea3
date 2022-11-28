@@ -2,7 +2,7 @@
   <section class="top_tovar">
       <h3><span>—</span> Товары <span>—</span></h3>
       <div class="tovar-2">
-        <div class="tea" v-for="inf in info" v-bind:key="inf">
+        <div class="tea" v-for="inf in info" :key="inf">
           <div class="info_tea">
             <img :src="inf.img" alt="">
             <h4>{{ inf.name_product }}</h4>

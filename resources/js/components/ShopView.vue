@@ -2,13 +2,11 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <Kostyl></Kostyl>
-    <div v-for="inf in info, info2" :key="inf">
-        <p>{{inf.summ}}</p>
-        <p>{{inf.name_product}}</p>
+    <div v-for="inf in all" :key="inf">
+      <p>{{inf}}</p>
+      <!-- <p>{{inf.name_product}}</p> -->
+      <!-- <p>{{inf.count}}</p> -->
     </div>
-  </div>
-  <div>
-
   </div>
   <div><FooterView></FooterView></div>
 </template>
@@ -18,16 +16,16 @@ import HeaderComponent from './HeaderComponent.vue';
 import Kostyl from './Kostyl.vue';
 import FooterView from './FooterView.vue';
 
-
 export default {
     data() {
-        return {            
-          info: [],
-          info2: []
+        return {   
+            info: [],
+            info2: [],
+            all: []
         };
     },
     mounted(){    
-      document.title = "Корзина";
+      document.title = "Корзина"
       this.getProductsCart()
     },
     components: { HeaderComponent, Kostyl, FooterView },
@@ -63,9 +61,11 @@ export default {
                 }
             },)
               .then( r => {
-                this.info2 = r.data
-                // console.log();
+                this.info2 = r.data;
+                this.all = this.info;  
+                console.log(this.all);
               })
+              
           })
       }
     }
@@ -78,7 +78,11 @@ export default {
   }
   div img{
     width: 100px;
-    height: 200px;
+    height: 100px;
     border-radius: 25px;
+  }
+  .d-f{
+    display: flex;
+    flex-direction: row;
   }
 </style>
