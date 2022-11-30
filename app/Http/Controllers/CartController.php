@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,7 @@ class CartController extends Controller
     {
         $id_user = $request->input('id_user');
         
-        return DB::table('carts')->select('id_product', 'count', 'summ')->where('id_user', '=', $id_user)->get();
+        return DB::table('carts')->select('id', 'id_product', 'count', 'summ')->where('id_user', '=', $id_user)->get();
     }
 
     public function product(Request $request){
@@ -39,5 +40,9 @@ class CartController extends Controller
             array_push($products,Product::find($id[$i]));
         }
         return $products;
+    }
+
+    public function delcart($id){
+        Cart::find($id)->delete();
     }
 }

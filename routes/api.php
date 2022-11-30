@@ -46,3 +46,4 @@ Route::post('/delavatar', [LoadAvatarController::class, 'delavatar']);
 Route::post('/addproduct', [CartController::class, 'addCart']);
 Route::post('/getproductcart', [CartController::class, 'getProduct']);
 Route::post('/product', [CartController::class, 'product']);
+Route::delete('/deletecart/{id}', [CartController::class, 'delcart']);

@@ -2,10 +2,20 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <Kostyl></Kostyl>
-    <div v-for="inf in all" :key="inf">
-      <p>{{inf}}</p>
-      <!-- <p>{{inf.name_product}}</p> -->
-      <!-- <p>{{inf.count}}</p> -->
+    <div class="d-f">
+      <div class="info_product">
+        <div v-for="inf in info2" :key="inf">
+          <img :src="inf.img" alt="">
+          <p>{{inf.name_product}}</p>
+        </div>
+      </div>
+      <div class="info_summ">
+        <div v-for="inf in info" :key="inf">
+          <p>{{inf.summ}} ₽ / {{inf.count}} гр. </p>
+          <button v-on:click="id = inf.id" @click.prevent="del_cart">Удалить из корзины</button>
+        </div>
+        <p>{{result}}</p>
+      </div>
     </div>
   </div>
   <div><FooterView></FooterView></div>
@@ -21,12 +31,14 @@ export default {
         return {   
             info: [],
             info2: [],
-            all: []
+            id: '',
+            result: null
         };
     },
     mounted(){    
       document.title = "Корзина"
       this.getProductsCart()
+      this.resultSumm()
     },
     components: { HeaderComponent, Kostyl, FooterView },
 
@@ -62,11 +74,22 @@ export default {
             },)
               .then( r => {
                 this.info2 = r.data;
-                this.all = this.info;  
-                console.log(this.all);
               })
               
           })
+      },
+
+      del_cart(){
+        axios.delete(`/api/deletecart/${ this.id }`)
+          .then(res => {
+            this.getProductsCart();
+            // console.log(res);
+          })
+      },
+
+      resultSumm(){
+        this.result = this.info2;
+        console.log(this.info2);
       }
     }
 };
@@ -84,5 +107,37 @@ export default {
   .d-f{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #191D21;
+    width: 80%;
+    margin-left: 8vw;
+    margin-top: 5vw;
+  }
+  .info_product{
+    display: flex;
+    flex-direction: column;
+  }
+  .info_product div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+  }
+  .info_product div p{
+    padding: 20px;
+  }
+  .info_summ{
+    display: flex;
+    flex-direction: column;
+  }
+  .info_summ div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+  }
+  .info_summ div p{
+    padding-right: 20px;
   }
 </style>
