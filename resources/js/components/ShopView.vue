@@ -14,9 +14,9 @@
           <p>{{inf.summ}} ₽ / {{inf.count}} гр. </p>
           <button v-on:click="id = inf.id" @click.prevent="del_cart">Удалить из корзины</button>
         </div>
-        <p>{{result}}</p>
       </div>
     </div>
+    <p>Итого: {{totalMoney}}₽</p>
   </div>
   <div><FooterView></FooterView></div>
 </template>
@@ -32,15 +32,14 @@ export default {
             info: [],
             info2: [],
             id: '',
-            result: null
+            totalMoney: 0,
         };
     },
     mounted(){    
       document.title = "Корзина"
       this.getProductsCart()
-      this.resultSumm()
     },
-    components: { HeaderComponent, Kostyl, FooterView },
+    components: { HeaderComponent, Kostyl, FooterView },  
 
     methods:{
       getProductsCart(){        
@@ -56,13 +55,15 @@ export default {
           )
           .then(res => {
             this.info = res.data;
+
             let id_products = [];
             for(let i = 0; i < res.data.length; i++ ){
               // console.log(res.data[i]['id_product']);
               id_products.push(res.data[i]['id_product']);
               // console.log(id_products);
+              this.totalMoney += res.data[i]['summ'];
             }
-            // console.log(id_products);
+            // console.log(totalMoney);
             let formData = new FormData();
             formData.append('id_products', id_products);
             axios.post('/api/product', 
@@ -86,11 +87,6 @@ export default {
             // console.log(res);
           })
       },
-
-      resultSumm(){
-        this.result = this.info2;
-        console.log(this.info2);
-      }
     }
 };
 </script>
