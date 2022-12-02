@@ -15,6 +15,21 @@ class CartController extends Controller
         $id_product = $request->input('id_product');
         $count = $request->input('count');
         $summ = $request->input('summ');
+        $sql = DB::table('carts')->select('id_product')->where('id_user', '=', $id_user)->get();
+        $sql_count = DB::table('carts')->where('id_product',$id_product)->first();
+
+        foreach($sql as $item){
+            if($id_product ==  $item->id_product){
+
+                $count += $sql_count->count;
+                $summ += $sql_count->summ;
+                DB::table('carts')->where('id_user', '=', $id_user)->where('id_product',$id_product)->update([
+                    'count' => $count,
+                    'summ' => $summ
+                ]);
+                return response()->json(['message' => 'Товар обновился']);
+            } 
+        }
 
         DB::table('carts')->insert([
             'id_user' => $id_user,
@@ -22,6 +37,7 @@ class CartController extends Controller
             'count' => $count,
             'summ' => $summ
         ]);
+        
     }
 
     public function getProduct(Request $request)
@@ -44,5 +60,6 @@ class CartController extends Controller
 
     public function delcart($id){
         Cart::find($id)->delete();
+        return DB::table('carts')->select('summ')->where('id', '=', $id)->get();
     }
 }

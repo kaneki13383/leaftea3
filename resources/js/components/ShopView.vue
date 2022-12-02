@@ -5,7 +5,8 @@
     <div class="d-f">
       <div class="info_product">
         <div v-for="inf in info2" :key="inf">
-          <img :src="inf.img" alt="">
+          <img v-if="(inf.img != null)" :src="inf.img" alt="">
+          <img v-else src="img/no-avatar.png" alt="">
           <p>{{inf.name_product}}</p>
         </div>
       </div>
@@ -55,12 +56,13 @@ export default {
           )
           .then(res => {
             this.info = res.data;
-
             let id_products = [];
+            this.totalMoney = 0;
             for(let i = 0; i < res.data.length; i++ ){
               // console.log(res.data[i]['id_product']);
               id_products.push(res.data[i]['id_product']);
               // console.log(id_products);
+              // console.log(res.data[i]['summ']);
               this.totalMoney += res.data[i]['summ'];
             }
             // console.log(totalMoney);
@@ -68,13 +70,18 @@ export default {
             formData.append('id_products', id_products);
             axios.post('/api/product', 
                 formData,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            },)
+              {
+                  headers: {
+                      'Content-Type': 'multipart/form-data'
+                  }
+              },
+            )
               .then( r => {
                 this.info2 = r.data;
+                if(this.info2 == null || this.info2 == ''){
+                  this.info2 = null
+                  this.info = null
+                }
               })
               
           })
@@ -84,7 +91,8 @@ export default {
         axios.delete(`/api/deletecart/${ this.id }`)
           .then(res => {
             this.getProductsCart();
-            // console.log(res);
+            this.totalMoney = this.totalMoney - res.data[0]['summ'];
+            console.log();
           })
       },
     }
