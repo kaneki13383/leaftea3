@@ -17,7 +17,10 @@
         </div>
       </div>
     </div>
-    <p>Итого: {{totalMoney}}₽</p>
+    <div class="itog">
+      <p>Итого: {{totalMoney}}₽</p>
+      <button>Оформить заказ</button>
+    </div>
   </div>
   <div><FooterView></FooterView></div>
 </template>
@@ -102,11 +105,12 @@ export default {
 <style lang="css" scoped>
   div p{
     color: white;
+    font-size: 1.5vw;
   }
   div img{
-    width: 100px;
-    height: 100px;
-    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
   }
   .d-f{
     display: flex;
@@ -121,6 +125,9 @@ export default {
   .info_product{
     display: flex;
     flex-direction: column;
+    gap: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
   }
   .info_product div{
     display: flex;
@@ -134,6 +141,9 @@ export default {
   .info_summ{
     display: flex;
     flex-direction: column;
+    gap: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
   }
   .info_summ div{
     display: flex;
@@ -143,5 +153,49 @@ export default {
   }
   .info_summ div p{
     padding-right: 20px;
+  }
+  .info_summ button{
+    width: 250px;
+    height: 50px;
+    text-decoration: none;
+    background-color: transparent;
+    border: #9FC926 2px solid;
+    color: white;
+    font-size: 1.2vw;
+    font-family: 'Philosopher', sans-serif;
+  }
+  .info_summ button:hover{
+    background-color: #9FC926;
+    color: #191D21;
+    transition-duration: 0.5s;
+  }
+  /**/
+  .itog{
+    display: flex;
+    margin-top: 1.2vw;
+    margin-left: 8vw;
+  }
+  .itog p{
+    color: white;
+    font-size: 1.7vw;
+    font-family: 'Comfortaa', cursive;
+    border-bottom: 2px solid #9FC926;
+  }
+  .itog button{
+    width: 250px;
+    height: 50px;
+    text-decoration: none;
+    background-color: transparent;
+    border: #9FC926 2px solid;
+    color: white;
+    font-size: 1.2vw;
+    font-family: 'Philosopher', sans-serif;
+    margin-top: 1.9vw;
+    margin-left: 54.5vw; 
+  }
+  .itog button:hover{
+    background-color: #9FC926;
+    color: #191D21;
+    transition-duration: 0.5s;
   }
 </style>
