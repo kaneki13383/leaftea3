@@ -112,10 +112,13 @@ export default {
     height: 150px;
     border-radius: 50%;
   }
+  .info_product div, .info_summ div{
+      height: 180px;
+    }
   .d-f{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     background: #191D21;
     width: 80%;
@@ -128,6 +131,9 @@ export default {
     gap: 2vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
+  }
+  .info_product div, .info_summ div{
+    border-bottom: 2px #9FC926 solid;
   }
   .info_product div{
     display: flex;
@@ -174,12 +180,16 @@ export default {
     display: flex;
     margin-top: 1.2vw;
     margin-left: 8vw;
+    width: 80%;
+    justify-content: space-between;
   }
   .itog p{
     color: white;
     font-size: 1.7vw;
     font-family: 'Comfortaa', cursive;
     border-bottom: 2px solid #9FC926;
+    
+    white-space: nowrap;
   }
   .itog button{
     width: 250px;
@@ -191,11 +201,124 @@ export default {
     font-size: 1.2vw;
     font-family: 'Philosopher', sans-serif;
     margin-top: 1.9vw;
-    margin-left: 54.5vw; 
+    margin-left: 54.5vw;
+    
+    white-space: nowrap; 
   }
+  
   .itog button:hover{
     background-color: #9FC926;
     color: #191D21;
     transition-duration: 0.5s;
+  }
+  @media screen and (max-width: 1024px) {
+
+    .info_product div, .info_summ div{
+      height: 180px;
+    }
+    .info_product , .info_summ, .info_summ button {
+      font-size: 14px;
+    }
+    .info_summ button{
+      width: 190px;
+    }
+    .info_product img{
+      width: 120px;
+      height: 120px;
+    }
+    .itog{
+      width: 80%;
+      justify-content: space-between;
+    }
+    .itog button{
+      font-size: 20px;
+      margin-left: 0px;
+      
+    }
+    .itog p{
+      font-size: 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .info_product img{
+      width: 100px;
+      height: 100px;
+    }    
+    .info_summ button{
+      width: 120px;
+      font-size: 14px;
+    }
+    .info_product p, .info_summ p{
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .info_product div{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      margin: 0px;
+    } 
+    .info_product img, .info_product p{
+      margin: 0px;
+    }
+    .info_product div, .info_summ div{
+      margin: 0px;
+      padding: 0;
+    }
+    .itog p, .itog button{
+      font-size: 14px;
+    }
+    .itog button{
+      width: 150px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .info_product div{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      margin: 0px;
+    } 
+    .info_product img, .info_product p{
+      margin: 0px;
+      padding-left: 0px;
+    }
+    .info_product div, .info_summ div{
+      margin: 0px;
+      padding: 0;
+    }
+    .info_summ p{
+      width: 60px;
+    }
+    .info_summ button{
+      max-width: 80px;
+      font-size: 12px;
+    }
+    .d-f{
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      justify-content: none;
+    }
+    .info_product p, .info_summ p{
+      font-size: 12px;
+    }
+    .itog p, .itog button{
+      font-size: 14px;
+    }
+    .itog button{
+      width: 150px;
+    }
+    .itog{
+      margin-left: 10vw;
+    }
+  }
+  @media screen and (max-width: 320px) {
+    .itog{
+      width: 90%;
+      margin: 5vw;
+    }
+    
   }
 </style>

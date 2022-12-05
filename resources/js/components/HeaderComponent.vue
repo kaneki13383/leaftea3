@@ -116,6 +116,7 @@ export default {
     @media screen and (max-width: 1024px) {   
         .navigation{
             opacity: 0;
+            display: none;
         }     
         .burger-menu_button{
             display: block;
