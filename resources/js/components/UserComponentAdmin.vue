@@ -4,7 +4,7 @@
         <div v-for="i in info" v-bind:key="i" class="users_output">
             <div class="user">
                 <p class="id">{{i.id}}.</p>
-                <img src="img/no-avatar.png" v-if="i.avatar == null" alt="">
+                <img src="img/no-avatar.png" v-if="(i.avatar == null || i.avatar == 'NULL')" alt="">
                 <img :src="i.avatar" alt="" v-else>
                 <p class="inf">{{i.name}}</p>
                 <p class="inf">{{i.email}}</p>

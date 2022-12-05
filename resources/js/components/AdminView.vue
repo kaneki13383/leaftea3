@@ -8,7 +8,7 @@
             <li v-on:click="show = 'reviews'">
                 <a><img src="img/Vector1.svg" alt="">Отзывы</a>
             </li>
-            <li>
+            <li v-on:click="show = 'orders'">
                 <router-link to=""><img src="img/Vector2.svg" alt="">Заказы</router-link>
             </li>
             <li v-on:click="show = 'products'">
@@ -22,6 +22,7 @@
             <users v-if="show == 'users'"></users>
             <reviews v-else-if="show == 'reviews'"></reviews>
             <products v-else-if="show == 'products'"></products>
+            <orders v-else-if="show == 'orders'"></orders>
         </div>
     </div>
 </template>
@@ -30,8 +31,9 @@
 import users from './UserComponentAdmin.vue';
 import reviews from './Reviews.vue';
 import products from './Products.vue';
+import orders from './OrdersView.vue';
 export default {
-    components: { users, reviews, products },
+    components: { users, reviews, products, orders },
     data () {     
         return {
             show: 'users',
