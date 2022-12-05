@@ -25,6 +25,32 @@
             <button v-on:click="Review1()" class="button_sub">Отправить</button>
         </div>   
     </div>
+
+    <div>
+        <h3><span>—</span> Ваши заказы <span>—</span></h3>
+        <p v-if="(info == '' || info == null)" class="empty_cart">Вы еще не сделали заказ</p>
+        <div v-else style="display: flex; flex-direction: column; align-items: center; gap: 5vw;">
+            <div class="d-f2">
+                <div class="info_product">
+                    <div v-for="inf in info2" :key="inf" >
+                        <img v-if="(inf.img != null)" :src="inf.img" alt="">
+                        <img v-else src="img/no-avatar.png" alt="">
+                        <p>{{inf.name_product}}</p>
+                    </div>
+                </div>
+                <div class="info_summ">
+                    <div v-for="inf in info" :key="inf">
+                        <p>{{inf.summ}} ₽ / {{inf.count}} гр. </p>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        <div v-if="(info == '' || info == null)"></div>
+        <div v-else class="itog">
+            <p>Итого к оплате: {{total}}₽</p>
+            <p>Статус заказа: {{status}}</p>
+        </div>
+    </div>
     <div><FooterView></FooterView></div>
 </template>
 
@@ -41,7 +67,11 @@ export default {
             file: '',
             id: '',
             avatar: '',
-            review: ''
+            review: '',
+            info: [],
+            info2: [],
+            status: '',
+            total: 0
         }
     },
 
@@ -52,7 +82,8 @@ export default {
         this.getName()
         this.getEmail()
         this.getAvatar()
-            this.getId()
+        this.getId()
+        this.getOrder()
         document.title = this.name;
     },
 
@@ -147,12 +178,116 @@ export default {
                 console.log()
                 this.review = ''
             })
+        },
+
+        getOrder(){
+            let formData = new FormData();
+            formData.append('id_user', localStorage.getItem('id'));
+            axios.post('/api/output_order', 
+            formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                },
+            )
+            .then(res => {
+                this.info = res.data;
+                this.status = res.data[0]['status'];
+                this.total = res.data[0]['total']
+
+
+                let id_products = [];
+                for(let i = 0; i < res.data.length; i++ ){
+                    id_products.push(res.data[i]['id_product']);
+                }
+                let formData = new FormData();
+                formData.append('id_products', id_products);
+                axios.post('/api/product', 
+                formData,
+                    {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    },
+                )
+                .then(r => {
+                    this.info2 = r.data
+                })
+            })
         }
     }
 }
 </script>
 
 <style lang="css" scoped>
+    .itog{
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        margin-top: 1.2vw;
+        margin-left: 13vw;
+    }
+    .itog p{
+        color: white;
+        font-size: 1.7vw;
+        font-family: 'Comfortaa', cursive;
+        border-bottom: 2px solid #9FC926;
+    }
+    .empty_cart{
+        text-align: center;
+        margin: 5vw 0;
+    }
+    div p{
+        color: white;
+        font-size: 1.5vw;
+    }
+    div img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    .d-f2{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background: #191D21;
+        width: 80%;
+        margin-top: 5vw;
+    }
+    .info_product{
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
+    .info_product div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+    .info_product div p{
+        padding: 20px;
+    }
+    .info_summ{
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
+    .info_summ div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 30px;
+    }
+    .info_summ div p{
+        padding-right: 20px;
+    }
     .del_avatar{
         background-image: url('img/xx.png');
         background-size: 100%;

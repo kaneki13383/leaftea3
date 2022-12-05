@@ -2,24 +2,32 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <Kostyl></Kostyl>
-    <div class="d-f">
-      <div class="info_product">
-        <div v-for="inf in info2" :key="inf">
-          <img v-if="(inf.img != null)" :src="inf.img" alt="">
-          <img v-else src="img/no-avatar.png" alt="">
-          <p>{{inf.name_product}}</p>
+    <p v-if="(info == '' || info == null)" class="empty_cart">Корзина пуста</p>
+    <div v-else style="display: flex; flex-direction: column; align-items: center; gap: 5vw;">
+      <div class="d-f">
+        <div class="info_product">
+          <div v-for="inf in info2" :key="inf" >
+            <img v-if="(inf.img != null)" :src="inf.img" alt="">
+            <img v-else src="img/no-avatar.png" alt="">
+            <p>{{inf.name_product}}</p>
+          </div>
         </div>
+        <div class="info_summ">
+          <div v-for="inf in info" :key="inf">
+            <p>{{inf.summ}} ₽ / {{inf.count}} гр. </p>
+            <button v-on:click="id = inf.id" @click.prevent="del_cart">Удалить из корзины</button>
+          </div>
+        </div>      
       </div>
-      <div class="info_summ">
-        <div v-for="inf in info" :key="inf">
-          <p>{{inf.summ}} ₽ / {{inf.count}} гр. </p>
-          <button v-on:click="id = inf.id" @click.prevent="del_cart">Удалить из корзины</button>
-        </div>
+      <div>
+        <input v-model="adress" class="adress" type="text" v-if="show == 'on'" placeholder="Введите адрес доставки">
       </div>
-    </div>
+    </div>   
+
     <div class="itog">
       <p>Итого: {{totalMoney}}₽</p>
-      <button>Оформить заказ</button>
+      <button v-on:click="show = 'on'" v-if="show == ''">Оформить заказ</button>
+      <button v-else-if="show == 'on'" @click.prevent="addOrder">Оформить заказ</button>
     </div>
   </div>
   <div><FooterView></FooterView></div>
@@ -37,6 +45,8 @@ export default {
             info2: [],
             id: '',
             totalMoney: 0,
+            show: '',
+            adress: ''
         };
     },
     mounted(){    
@@ -62,13 +72,9 @@ export default {
             let id_products = [];
             this.totalMoney = 0;
             for(let i = 0; i < res.data.length; i++ ){
-              // console.log(res.data[i]['id_product']);
               id_products.push(res.data[i]['id_product']);
-              // console.log(id_products);
-              // console.log(res.data[i]['summ']);
               this.totalMoney += res.data[i]['summ'];
             }
-            // console.log(totalMoney);
             let formData = new FormData();
             formData.append('id_products', id_products);
             axios.post('/api/product', 
@@ -98,11 +104,58 @@ export default {
             console.log();
           })
       },
+
+      addOrder(){
+        let id_products = [];
+        let count = [];
+        let summ = [];
+        for( let i = 0; i < this.info.length; i++){
+          id_products.push(this.info[i]['id_product'])
+          count.push(this.info[i]['count'])
+          summ.push(this.info[i]['summ'])
+        }
+        let formData = new FormData();
+        formData.append('id_user', localStorage.getItem('id'));
+        formData.append('adress', this.adress);
+        formData.append('total', this.totalMoney);
+        formData.append('summ', summ);
+        formData.append('count', count);
+        formData.append('id_products', id_products);
+        axios.post('/api/addOrder',
+          formData,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            },
+          )
+          .then(res => {
+            this.getProductsCart()
+          })
+      }
     }
 };
 </script>
 
 <style lang="css" scoped>
+  .empty_cart{
+    text-align: center;
+    margin: 5vw 0;
+  }
+  .adress{
+    height: 50px;
+    width: 500px;
+    background: transparent;
+    border: 2px solid #9FC926;
+    font-size: 1vw;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+  }
+  input::placeholder{
+        color: white;
+        font-size: 1vw;
+        font-family: 'Comfortaa', cursive;
+    }
   div p{
     color: white;
     font-size: 1.5vw;
@@ -122,7 +175,6 @@ export default {
     align-items: center;
     background: #191D21;
     width: 80%;
-    margin-left: 8vw;
     margin-top: 5vw;
   }
   .info_product{
