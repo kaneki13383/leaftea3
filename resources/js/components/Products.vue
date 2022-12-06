@@ -13,6 +13,7 @@
                 <textarea v-model="discription" type="text" name="discription" maxlength="1600" placeholder="Введите полное описание товара"></textarea>
                 <div class="counter">{{counter}}/1600</div>
                 <button v-on:click="submitFile()">Добавить</button>
+                <button v-if="show == 'on'" v-on:click="saveEdit()">Обновить</button>
             </div>
             <div class="all-products">
                 <div class="tea" v-for="inf in info" v-bind:key="inf">
@@ -21,8 +22,8 @@
                         <h5>{{ inf.name_product }}</h5>
                         <p>{{inf.price}} ₽/50гр.</p>
                         <div class="edit_del">
-                            <div class="edit"></div>
-                            <div v-on:click="id = inf.id" @click.prevent="deleteProduct" class="delete"></div>
+                            <div v-on:click="editProduct(inf.id)" class="edit"></div>
+                            <div v-on:click="(id_product = inf.id, id = inf.id)" @click.prevent="deleteProduct" class="delete"></div>
                         </div>
                     </div>
                 </div>  
@@ -41,12 +42,14 @@ export default {
 
     data () {       
         return {
+            id_product: 0,
             file: '',
             name_product: '',
             price: '',
             discription: '',
             discription2: '',
-            info: []
+            info: [],
+            show: 'off'
         }
     },
 
@@ -97,6 +100,43 @@ export default {
                 this.allProducts()
             })
         },
+        editProduct(id){ 
+            this.show = 'on'
+            this.id_product = id;
+            axios.get(`/api/products/${id}`).then(response => {
+                console.log(response);
+
+                this.name_product = response.data['name_product'];
+                this.price = response.data['price'];
+                this.discription2 = response.data['discription2'];
+                this.discription = response.data['discription'];
+
+            })
+        },
+        saveEdit(){
+            this.show = 'off'
+            let formData = new FormData();
+            formData.append('id', this.id_product);
+            formData.append('name_product', this.name_product);
+            formData.append('price', this.price);
+            formData.append('discription', this.discription);
+            formData.append('discription2', this.discription2);
+            axios.post('/api/saveEdit', 
+            formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                },)
+            .then(res => {
+                this.name_product = '';
+                this.price = '';
+                this.discription2 = '';
+                this.discription = '';
+                this.allProducts();
+                console.log(res);
+            })
+        }
     }
 }
 </script>
