@@ -41,14 +41,15 @@
                 <div class="info_summ">
                     <div v-for="inf in info" :key="inf">
                         <p>{{inf.summ}} ₽ / {{inf.count}} гр. </p>
+                        <p>Статус заказа: {{inf.status}}</p>
                     </div>
                 </div>      
             </div>
         </div>
         <div v-if="(info == '' || info == null)"></div>
         <div v-else class="itog">
-            <p>Итого к оплате: {{total}}₽</p>
-            <p>Статус заказа: {{status}}</p>
+            <!-- <p>Итого к оплате: {{total}}₽</p> -->
+            <!-- <p>Статус заказа: {{status}}</p> -->
         </div>
     </div>
     <div><FooterView></FooterView></div>

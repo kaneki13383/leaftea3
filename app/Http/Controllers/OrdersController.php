@@ -46,4 +46,15 @@ class OrdersController extends Controller
     {
         return Orders::all();
     }
+
+    public function setStatus(Request $request)
+    {
+        $status = $request->input('status');
+        $id_product = $request->input('id_product');
+
+        DB::table('orders')->where('id_product',$id_product)->update([
+            'status' => $status
+        ]);
+
+    }
 }

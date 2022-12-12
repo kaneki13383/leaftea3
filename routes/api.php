@@ -54,3 +54,4 @@ Route::post('/output_order', [OrdersController::class, 'output_order']);
 Route::post('/output_all_order', [OrdersController::class, 'output_all_order']);
 Route::post('/find_user', [UserOutputController::class, 'find_user']);
 Route::post('/saveEdit', [ProductController::class, 'editProduct']);
+Route::post('/setStatus', [OrdersController::class, 'setStatus']);

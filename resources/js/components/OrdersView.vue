@@ -2,21 +2,29 @@
     <div>
         <h3><span>—</span> Заказы <span>—</span></h3>
         <div>
-            <p v-if="(info == '' || info == null)" class="empty_cart">Вы еще не сделали заказ</p>
+            <p v-if="(info == '' || info == null)" class="empty_cart">Заказов нет</p>
             <div v-else style="display: flex; flex-direction: column; align-items: center; gap: 5vw;">
                 <div class="d-f2">
                     <div class="info_product">
                         <div v-for="us in users" :key="us">
-                            <img src="img/no-avatar.png" v-if="us.avatar == 'NULL' || us.avatar == 'undefined'" alt="">
-                            <img :src="us.avatar" alt="" v-else> 
                             <p>{{us.name}}</p>
                         </div>
                     </div>                    
                     <div class="info_summ">
                         <div v-for="inf in info" :key="inf">
                             <p>{{inf.summ}} ₽ / {{inf.count}} гр. </p>
-                            <p>Итого: {{inf.total}} ₽</p>
+                            <!-- <p>Итого: {{inf.total}} ₽</p> -->
                             <p>Статус: {{inf.status}}</p>
+                            <p>Адрес: {{inf.adress}}</p>
+                            <select v-model="status" name="status">
+                                <option value=""></option>
+                                <option value="Передано курьеру">Передано курьеру</option>
+                                <option value="Доставка">Доставка</option>
+                                <option value="Забрать в магазине">Забрать в магазине</option>
+                                <option value="Доставлено">Доставлено</option>
+                                <option value="Отменен">Отменен</option>
+                            </select>
+                            <button v-on:click="id = inf.id_product" @click.prevent="setStatus">Сохранить</button>
                         </div>
                     </div>      
                 </div>
@@ -31,7 +39,9 @@ export default {
         return {
             info: [],
             info2: [],
-            users: []
+            users: [],
+            status: '',
+            id: ''
         }
     },
 
@@ -90,10 +100,28 @@ export default {
                     )
                     .then( us => {
                         this.users = us.data;
-                        console.log(us);
+                        // console.log(us);
                     })
                 })
             })
+        },
+
+        setStatus(){
+            let formData = new FormData();
+            formData.append('status', this.status);
+            formData.append('id_product', this.id);
+            axios.post('/api/setStatus', 
+                formData,
+                    {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    },
+                )
+            .then(res => {
+                console.log(this.id);
+                this.getOrder();
+            })   
         }
     }
 }
@@ -109,18 +137,19 @@ export default {
     h3 span{
         color: #9FC926;
     }
-    .itog{
-        display: flex;
-        justify-content: space-between;
-        width: 70%;
-        margin-top: 1.2vw;
-        margin-left: 13vw;
-    }
-    .itog p{
+    select{
+        width: 150px;
+        height: 50px;
+        background-color: transparent;
+        text-decoration: none;
+        border: #9FC926 2px solid;
         color: white;
-        font-size: 1.7vw;
-        font-family: 'Comfortaa', cursive;
-        border-bottom: 2px solid #9FC926;
+        font-size: 1.2vw;
+        font-family: 'Philosopher', sans-serif;
+        margin-right: 1vw;
+    }
+    option{
+        background: #191D21;
     }
     .empty_cart{
         text-align: center;
@@ -128,11 +157,11 @@ export default {
     }
     div p{
         color: white;
-        font-size: 1.5vw;
+        font-size: 1.2vw;
     }
     div img{
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
     }
     .d-f2{
@@ -141,7 +170,7 @@ export default {
         justify-content: space-evenly;
         align-items: center;
         background: #191D21;
-        width: 100%;
+        width: 110%;
         margin-top: 5vw;
     }
     .info_product{
@@ -177,7 +206,7 @@ export default {
         padding-right: 20px;
     }
     .info_summ button{
-        width: 250px;
+        width: 150px;
         height: 50px;
         text-decoration: none;
         background-color: transparent;
