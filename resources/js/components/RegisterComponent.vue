@@ -2,6 +2,7 @@
   <div class="form">
     <div class="background">
         <h3> <router-link to="/"><span>—</span> Регистрация <span>—</span></router-link></h3>
+        <form>
         <div class="info_name">
             <input v-model="name"  class="block mt-1 w-full" type="text" name="name" placeholder="Введите имя"   />
          </div>     
@@ -20,10 +21,11 @@
         <!-- Confirm Password -->
         <div class="info_confirm_passord">
             <input v-model="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" placeholder="Введите пароль еще раз"  />
-        </div>      
+        </div>  
         <div class="info_link">
-            <button @click.prevent="register" type="submit">Отправить</button>
+            <button @click.prevent="register">Отправить</button>
         </div>
+    </form>    
         <div class="info_link_div">
         <router-link class="info_link_text" to="/login">
                 Уже зарегистрирован?

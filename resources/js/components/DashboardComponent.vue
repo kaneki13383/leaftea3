@@ -264,6 +264,10 @@ export default {
         margin-top: 2vw;
         margin-bottom: 2vw;
     }
+    .info_product img{
+        width: 10vw;
+        height: 10vw;
+    }
     .info_product div{
         display: flex;
         flex-direction: row;
@@ -467,7 +471,12 @@ export default {
             margin-left: 44vw;
             margin-top: 17vw;;
         }
-        
+        .info_product p{
+            font-size: 17px;
+        }
+        .info_summ p{
+            font-size: 17px;
+        }
     }
     @media screen and (max-width: 768px) {
         .counter{
@@ -484,7 +493,20 @@ export default {
             width: 40vw;
             font-size: 28px;
             margin-top: 40px;
-        }    
+        }
+        .info_product img{
+            width: 15vw;
+            height: 15vw;
+        }
+        .info_product p{
+            font-size: 14px;
+        }
+        .info_summ p{
+            font-size: 14px;
+        }
+        .d-f2{
+            width: 100%;
+        }
     }
     @media screen and (max-width: 425px) {
         .info, .review{
@@ -511,10 +533,16 @@ export default {
             margin-left: 35vw;
             margin-top: -7vw;
         }
+        .info_summ div{
+            padding: 10px;
+        }
     }
     @media screen and (max-width: 375px) {
         .info, .review{
             max-width: 350px;
+        }
+        .info_summ div{
+            padding: 0px;
         }
     }
     @media screen and (max-width: 320px) {

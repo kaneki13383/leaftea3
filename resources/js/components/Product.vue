@@ -25,9 +25,9 @@
     </div>
     <div class="block">
       <div class="foto_block">
-        <img src="img/angliiskiisadovnik1 1.png" alt="">
-        <img src="img/angliiskiisadovnik1 1.png" alt="">
-        <img src="img/angliiskiisadovnik1 1.png" alt="">
+        <img :src="this.info['img']" alt="">
+        <img :src="this.info['img']" alt="">
+        <img :src="this.info['img']" alt="">
       </div>
       <div class="price">
         <p v-if="this.summ >= this.info['price']">{{this.summ}} ₽/{{this.weight}}гр.</p>
@@ -289,6 +289,7 @@ h5{
 .foto_block img{
   width: 250px;
   height: 250px;
+  border-radius: 50%;
 }
 .price{
   display: flex;

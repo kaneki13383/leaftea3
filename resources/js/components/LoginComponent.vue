@@ -2,13 +2,15 @@
     <div class="log">
         <div class="background">
         <h3><router-link to="/"><span>—</span> Авторизация <span>—</span></router-link></h3>
+        <form>
         <div class="info_email">
             <input v-model="email" type="email" name="email" placeholder="Email">
         </div>
         <div class="info_password">
             <input v-model="password" type="password" name="password" placeholder="Пароль">
         </div>
-            <button @click.prevent="login" type="submit">Войти</button>
+            <button @click.prevent="login">Войти</button>
+        </form>
         <div class="info_link_div">
             <router-link class="info_link_text" to="/register">Нет аккаунта?</router-link>
         </div>

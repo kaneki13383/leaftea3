@@ -23,7 +23,7 @@
                     <img src="products/842209a26a2a4626db66503138f4298f.webp" alt="">
                     <h4>Секрет Императора</h4>
                     <p>280 ₽/50гр.</p>
-                    <router-link :to="{ path: '/product/4' }">Подробнее</router-link>
+                    <router-link :to="{ path: '/product/3' }">Подробнее</router-link>
                     </div>
                 </div>
             <div class="tea">
